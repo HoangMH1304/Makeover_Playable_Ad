@@ -143,49 +143,42 @@ public class ItemDisplay : MonoBehaviour
 
     public void OnClick()
     {
-        if (item.isAd && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Ad") != 1)
-        {
-            if (GameController.Instance.IsSkipAdsTicketAvaiable())
-            {
-                OnReward();
-            }
-            else
-            {
-                HandleAdItem(item);
-            }
-            return;
-        }
-        if (item.price > 0 && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Price") != 1)
-        {
-            HandlePriceItem();
-            return;
-        }
+        //if (item.isAd && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Ad") != 1)
+        //{
+        //    if (GameController.Instance.IsSkipAdsTicketAvaiable())
+        //    {
+        //        OnReward();
+        //    }
+        //    else
+        //    {
+        //        HandleAdItem(item);
+        //    }
+        //    return;
+        //}
+        //if (item.price > 0 && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Price") != 1)
+        //{
+        //    HandlePriceItem();
+        //    return;
+        //}
 
-        //show ad inters khi khong bam vao item ad
-        HandleConditionToShowInters();
+        ////show ad inters khi khong bam vao item ad
+        //HandleConditionToShowInters();
 
 
-        if ((item.price > 0 && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Price") != 1) ||
-            (item.isAd && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Ad") != 1))
-        {
-            return;
-        }
+        //if ((item.price > 0 && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Price") != 1) ||
+        //    (item.isAd && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Ad") != 1))
+        //{
+        //    return;
+        //}
 
 
         this.PostEvent(EventID.OnClick, item.id);
 
-        //hand tut in first challenge
-        if (handTut.activeSelf)
-        {
-            Destroy(GetComponent<GraphicRaycaster>());
-            Destroy(GetComponent<Canvas>());
-        }
-        handTut.SetActive(false);
-        if (item.bodyPart == BodyPart.Eye) blockPanelTut.SetActive(false);
+       
 
         //anim
-        transform.DOKill();
-        transform.DOScale(1.05f, 0.4f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        //transform.DOKill();
+        //transform.DOScale(1.05f, 0.4f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
         //
         fill.SetActive(true);
         PlayerPrefs.SetInt(item.bodyPart.ToString(), item.id);
@@ -193,9 +186,6 @@ public class ItemDisplay : MonoBehaviour
         SoundManager.Instance.PlayItemClickedSound();
     }
 
-    private static void HandleConditionToShowInters()
-    {
-    }
 
     private void SetPriceItem()
     {

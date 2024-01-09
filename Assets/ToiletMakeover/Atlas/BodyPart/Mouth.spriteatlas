@@ -44,9 +44,6 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 21300000, guid: a945a7b2c44301c419ee8becf09a0dd9, type: 3}
-    - {fileID: 21300000, guid: b8dd6dac9e6818c42acea541c39ef589, type: 3}
-    - {fileID: 21300000, guid: e77099915ffd98e40abfa16ab9d358b6, type: 3}
-    - {fileID: 21300000, guid: 477df6136d1a3fc459fd553569a81b34, type: 3}
     - {fileID: 21300000, guid: d822fd4e23cc0c242842282a3711f732, type: 3}
     - {fileID: 21300000, guid: eac364095d2cbbe47821f9ed1d4eca51, type: 3}
     - {fileID: 21300000, guid: 2a4d55659c414044fab0d748fc3ddb65, type: 3}
@@ -97,9 +94,6 @@ SpriteAtlas:
     - {fileID: 21300000, guid: 7223f482f6080c74f93a82bd3482b72e, type: 3}
     - {fileID: 21300000, guid: d0bfdbef7f8985e4fb1d474e2f3bff8d, type: 3}
     - {fileID: 21300000, guid: a945a7b2c44301c419ee8becf09a0dd9, type: 3}
-    - {fileID: 21300000, guid: b8dd6dac9e6818c42acea541c39ef589, type: 3}
-    - {fileID: 21300000, guid: e77099915ffd98e40abfa16ab9d358b6, type: 3}
-    - {fileID: 21300000, guid: 477df6136d1a3fc459fd553569a81b34, type: 3}
     - {fileID: 21300000, guid: d822fd4e23cc0c242842282a3711f732, type: 3}
     - {fileID: 21300000, guid: eac364095d2cbbe47821f9ed1d4eca51, type: 3}
     - {fileID: 21300000, guid: 2a4d55659c414044fab0d748fc3ddb65, type: 3}
@@ -155,7 +149,6 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 5d3be7507ed8b804aa8ec0afe3a2c8cd, type: 3}
-  - {fileID: 21300000, guid: e77099915ffd98e40abfa16ab9d358b6, type: 3}
   - {fileID: 21300000, guid: 03464cc1884010048a51851c027ed5d4, type: 3}
   - {fileID: 21300000, guid: f1bf92029b50eca42804d2db92584611, type: 3}
   - {fileID: 21300000, guid: 09ee3d423f55c1f4eb6caf93afc59f14, type: 3}
@@ -164,7 +157,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7223f482f6080c74f93a82bd3482b72e, type: 3}
   - {fileID: 21300000, guid: a945a7b2c44301c419ee8becf09a0dd9, type: 3}
   - {fileID: 21300000, guid: 8c7cb203ae905ce40908de1a72f50688, type: 3}
-  - {fileID: 21300000, guid: 477df6136d1a3fc459fd553569a81b34, type: 3}
   - {fileID: 21300000, guid: cca3b91327bb1b34c81fa27980a1c125, type: 3}
   - {fileID: 21300000, guid: 952cff6328fb1424da6361a7d54668d9, type: 3}
   - {fileID: 21300000, guid: 16d441735856c1a4da4be377cc3cf360, type: 3}
@@ -193,7 +185,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9368290c9ff521d4ca6d59b000a45455, type: 3}
   - {fileID: 21300000, guid: 19009d5c0bb3d8e47908772b1b2f1c8b, type: 3}
   - {fileID: 21300000, guid: fa69286c0a556af48ad64fb5ac115e53, type: 3}
-  - {fileID: 21300000, guid: b8dd6dac9e6818c42acea541c39ef589, type: 3}
   - {fileID: 21300000, guid: aa41d5ccf4c43c341ad6080a63700c78, type: 3}
   - {fileID: 21300000, guid: 45c4017d3ab095045a6c02f30a7f76b0, type: 3}
   - {fileID: 21300000, guid: f8db2afd554771a40bffa70ca823ff2a, type: 3}
@@ -209,7 +200,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ff1595ff97586f14bae130c18379b8d4, type: 3}
   m_PackedSpriteNamesToIndex:
   - mouth30
-  - 13_grimacezombie_lip_i
   - mouth9
   - mouth40
   - mouth4
@@ -218,7 +208,6 @@ SpriteAtlas:
   - mouth35
   - none
   - mouth41
-  - 17_grimacesanta_lip_i
   - mouth24
   - mouth15
   - mouth32
@@ -247,7 +236,6 @@ SpriteAtlas:
   - mouth38
   - mouth13
   - mouth43
-  - 9_grimace_lip_i
   - mouth29
   - mouth31
   - mouth8

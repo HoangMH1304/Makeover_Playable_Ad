@@ -192,7 +192,7 @@
       }
     },
     "uk.lunalabs.luna": {
-      "version": "file:D:/HoangMH/UnityProject/LunaPlayables/scripts",
+      "version": "file:../../LunaPlayables/scripts",
       "depth": 0,
       "source": "local",
       "dependencies": {}

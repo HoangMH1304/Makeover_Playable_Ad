@@ -15,8 +15,8 @@ public class BgAnimController : MonoBehaviour
     {
         int rand = Random.Range(0, bgAnims.Length);
         currentBg = rand;
-        bgAnims[currentBg].SetActive(true && isShowAnimBg);
-        return currentBg;
+        bgAnims[currentBg].SetActive(true);
+        return 0;
     }
 
     public void DeactiveBgAnim()

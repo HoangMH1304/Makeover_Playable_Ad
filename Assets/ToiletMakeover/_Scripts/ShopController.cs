@@ -84,10 +84,6 @@ public class ShopController : MonoBehaviour
     private SkeletonAnimation bodyAnim;
     private SkeletonAnimation bodyAnim2;
 
-    private TouchController eyeController;
-    private TouchController mouthController;
-    private TouchController accController;
-
     private bool isPickHead = false;
     private bool isPickEye = false;
     private bool isPickMouth = false;
@@ -115,13 +111,6 @@ public class ShopController : MonoBehaviour
     {
         Instance = this;
         InitReferences();
-
-        this.RegisterListener(EventID.OnRewardTop1, (param) => HandleTop1Reward());
-        this.RegisterListener(EventID.OnRewardTop2, (param) => HandleTop2Reward());
-        this.RegisterListener(EventID.OnRewardTop3, (param) => HandleTop3Reward());
-        this.RegisterListener(EventID.OnRewardTop10, (param) => HandleTop10Reward());
-        this.RegisterListener(EventID.OnRewardTop50, (param) => HandleTop50Reward());
-        this.RegisterListener(EventID.OnRewardTop100, (param) => HandleTop100Reward());
     }
 
     private void GetReference()
@@ -131,10 +120,6 @@ public class ShopController : MonoBehaviour
         eye_img = eye.GetComponent<SpriteRenderer>();
         mouth_img = mouth.GetComponent<SpriteRenderer>();
         acc_img = acc.GetComponent<SpriteRenderer>();
-
-        eyeController = eye.GetComponent<TouchController>();
-        mouthController = mouth.GetComponent<TouchController>();
-        accController = acc.GetComponent<TouchController>();
 
         bodyAnim = body.GetComponent<SkeletonAnimation>();
         bodyAnim2 = body2.GetComponent<SkeletonAnimation>();
@@ -323,7 +308,6 @@ public class ShopController : MonoBehaviour
     private void OnClickItem(int id)
     {
         int currentId = PlayerPrefs.GetInt(bodyPart.ToString(), 0);
-        SfxController.Instance.Vibrate();
         switch (bodyPart)
         {
             case BodyPart.Head:
@@ -516,9 +500,6 @@ public class ShopController : MonoBehaviour
 
     public void SetCurrenBodyPartController(int index)
     {
-        eyeController.enabled = false;
-        mouthController.enabled = false;
-        accController.enabled = false;
         switch (index)
         {
             case (int)BodyPart.Head:
@@ -528,17 +509,14 @@ public class ShopController : MonoBehaviour
             case (int)BodyPart.Eye:
                 bodyPart = BodyPart.Eye;
                 SetStateZoomSlide(isPickEye && idEye != 0);
-                eyeController.enabled = true;
                 break;
             case (int)BodyPart.Mouth:
                 bodyPart = BodyPart.Mouth;
                 SetStateZoomSlide(isPickMouth && idMouth != 0);
-                mouthController.enabled = true;
                 break;
             case (int)BodyPart.Acc:
                 bodyPart = BodyPart.Acc;
                 SetStateZoomSlide(isPickAcc && idAcc != 0);
-                accController.enabled = true;
                 FocusHeadCharacter();
                 break;
             case (int)BodyPart.Body:
@@ -684,302 +662,6 @@ public class ShopController : MonoBehaviour
         SortBodyPartItem(accContents, 58);
         SortBodyPartItem(bodyContent, 81);
     }
-
-
-
-    #region HandleSSReward
-
-    [SerializeField] private SeasonRewardSkinData androidData;
-    [SerializeField] private SeasonRewardSkinData iosData;
-
-    public void HandleTop1Reward()
-    {
-
-#if UNITY_ANDROID
-        foreach (var i in androidData.head1)
-        {
-            headContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSHead" + (i - 1), 1);
-        }
-
-        foreach (var i in androidData.eye1)
-        {
-            eyeContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSEye" + i, 1);
-        }
-
-        foreach (var i in androidData.mouth1)
-        {
-            mouthContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSMouth" + i, 1);
-        }
-
-        foreach (var i in androidData.acc1)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in androidData.body1)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-
-#if UNITY_IOS
-        foreach (var i in iosData.head1)
-        {
-            headContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSHead" + (i - 1), 1);
-        }
-
-        foreach (var i in iosData.eye1)
-        {
-            eyeContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSEye" + i, 1);
-        }
-
-        foreach (var i in iosData.mouth1)
-        {
-            mouthContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSMouth" + i, 1);
-        }
-
-        foreach (var i in iosData.acc1)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in iosData.body1)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-    }
-
-    public void HandleTop2Reward()
-    {
-#if UNITY_ANDROID
-        foreach (var i in androidData.head2)
-        {
-            headContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSHead" + (i - 1), 1);
-        }
-
-        foreach (var i in androidData.eye2)
-        {
-            eyeContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSEye" + i, 1);
-        }
-
-        foreach (var i in androidData.mouth2)
-        {
-            mouthContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSMouth" + i, 1);
-        }
-
-        foreach (var i in androidData.acc2)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in androidData.body2)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-
-#if UNITY_IOS
-        foreach (var i in iosData.head2)
-        {
-            headContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSHead" + (i - 1), 1);
-        }
-
-        foreach (var i in iosData.eye2)
-        {
-            eyeContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSEye" + i, 1);
-        }
-
-        foreach (var i in iosData.mouth2)
-        {
-            mouthContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSMouth" + i, 1);
-        }
-
-        foreach (var i in iosData.acc2)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in iosData.body2)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-    }
-
-    public void HandleTop3Reward()
-    {
-#if UNITY_ANDROID
-        foreach (var i in androidData.head3)
-        {
-            headContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSHead" + (i - 1), 1);
-        }
-
-        foreach (var i in androidData.mouth3)
-        {
-            mouthContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSMouth" + i, 1);
-        }
-
-        foreach (var i in androidData.acc3)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in androidData.body3)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-
-#if UNITY_IOS
-        foreach (var i in iosData.head3)
-        {
-            headContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSHead" + (i - 1), 1);
-        }
-
-        foreach (var i in iosData.mouth3)
-        {
-            mouthContent.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSMouth" + i, 1);
-        }
-
-        foreach (var i in iosData.acc3)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in iosData.body3)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-
-    }
-
-    public void HandleTop10Reward()
-    {
-#if UNITY_ANDROID
-        foreach (var i in androidData.head10)
-        {
-            headContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSHead" + (i - 1), 1);
-        }
-
-        foreach (var i in androidData.acc10)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in androidData.body10)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-
-#if UNITY_IOS
-        foreach (var i in iosData.head10)
-        {
-            headContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSHead" + (i - 1), 1);
-        }
-
-        foreach (var i in iosData.acc10)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in iosData.body10)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-
-    }
-
-    public void HandleTop50Reward()
-    {
-#if UNITY_ANDROID
-        foreach (var i in androidData.acc50)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in androidData.body50)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-
-#if UNITY_IOS
-        foreach (var i in iosData.acc50)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-        foreach (var i in iosData.body50)
-        {
-            bodyContent.Find((i - 1) + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSBody" + (i - 1), 1);
-        }
-#endif
-
-    }
-
-    public void HandleTop100Reward()
-    {
-#if UNITY_ANDROID
-        foreach (var i in androidData.acc100)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-
-
-#endif
-
-#if UNITY_IOS
-        foreach (var i in iosData.acc100)
-        {
-            accContents.Find(i + "").gameObject.SetActive(true);
-            PlayerPrefs.SetInt("SSAcc" + i, 1);
-        }
-#endif
-    }
-    #endregion
 
     //====================Just update data ongui by tool=================
 

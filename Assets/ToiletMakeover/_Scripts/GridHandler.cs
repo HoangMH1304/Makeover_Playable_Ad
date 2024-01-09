@@ -11,7 +11,7 @@ public class GridHandler : MonoBehaviour
 
     private void Start()
     {
-        cellSize = (UIHandler.Instance.WidthCanvas - 7 * 25) / 6;
+        cellSize = (UIHandler.Instance.WidthCanvas - 6 * 25) / 5;
         grid.cellSize = new Vector2(cellSize, cellSize);
 
     }
@@ -19,8 +19,9 @@ public class GridHandler : MonoBehaviour
     public void RestoreInitialPos()
     {
         //set pos
-        float y = content.localPosition.y;
-        content.localPosition -= new Vector3(0, y, 0);
+        //float y = content.localPosition.y;
+        //content.localPosition -= new Vector3(0, y, 0);
+        content.anchoredPosition = Vector2.zero;
     }
 
     public void SetStateContent(bool state)

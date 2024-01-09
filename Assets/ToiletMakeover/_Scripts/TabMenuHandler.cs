@@ -178,8 +178,6 @@ public class TabMenuHandler : MonoBehaviour
         prevBtn.color = fade;
         nextBtn.color = fade;
         done_Btn.SetActive(false);
-        submit_Btn.SetActive(false);
-        battle_Btn.SetActive(false);
         next_Btn.SetActive(true);
 
         slider.value = 1;
@@ -247,7 +245,6 @@ public class TabMenuHandler : MonoBehaviour
         ShopController.Instance.SetCurrenBodyPartController(index);
 
         SoundManager.Instance.PlaySound(Sound.next);
-        SfxController.Instance.Vibrate();
     }
 
     public void PreviousTab()
@@ -272,7 +269,6 @@ public class TabMenuHandler : MonoBehaviour
         ShopController.Instance.SetCurrenBodyPartController(index);
 
         SoundManager.Instance.PlaySound(Sound.next);
-        SfxController.Instance.Vibrate();
     }
     #endregion
 }

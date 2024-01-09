@@ -25,35 +25,6 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        if (PlayerPrefs.GetInt("FirstPlay") == 0)
-        {
-            gold = 20;
-            ticket = 3;
-            spin = 3;
-            skipAdsTicket = 0;
-            usedSpin = 0;
-            PlayerPrefs.SetInt("FirstPlay", 1);
-           
-            PlayerPrefs.SetInt("Gold", gold);
-            PlayerPrefs.SetInt("Ticket", ticket);
-            PlayerPrefs.SetInt("Spin", spin);
-            PlayerPrefs.SetInt("SkipAdsTicket", skipAdsTicket);
-            PlayerPrefs.SetInt("UsedSpin", usedSpin);
-        }
-        else
-        {
-            gold = PlayerPrefs.GetInt("Gold", 20);
-            ticket = PlayerPrefs.GetInt("Ticket", 3);
-            spin = PlayerPrefs.GetInt("Spin", 3);
-            skipAdsTicket = PlayerPrefs.GetInt("SkipAdsTicket", 0);
-            usedSpin = PlayerPrefs.GetInt("UsedSpin", 0);
-        }
-        UIHandler.Instance.UpdateGold(gold);
-        UIHandler.Instance.UpdateSpin(spin);
-        UIHandler.Instance.UpdateTicket(ticket);
-        UIHandler.Instance.UpdateSkipAdTicket(skipAdsTicket);
-
-        FreeSpinNoti();
     }
 
     private void FreeSpinNoti()

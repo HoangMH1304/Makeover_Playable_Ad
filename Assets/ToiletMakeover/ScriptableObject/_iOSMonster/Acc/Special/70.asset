@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebac7517ba888444ac3049514ca33eb, type: 3}
   m_Name: 70
   m_EditorClassIdentifier: 
-  id: 70
+  id: 7
   bodypartName: 
   preview: {fileID: 21300000, guid: 12414ec8e8ae849228e9085ffa573432, type: 3}
   part: {fileID: 21300000, guid: 13bf60c7e2e144467816b685d6ed4a06, type: 3}
-  isAd: 1
+  isAd: 0
   adNum: 1
   price: 0
   bodyPart: 3

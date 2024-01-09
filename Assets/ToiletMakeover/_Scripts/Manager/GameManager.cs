@@ -121,9 +121,9 @@ public class GameManager : MonoSingleton<GameManager>
     {
         isNormal = true;
         isChallenge = false;
-        SoundManager.Instance.SwitchBg(0);
-        CameraHandler.Instance.ResetToOriginalView();
-        UIHandler.Instance.DisplayNoAds();
+        //SoundManager.Instance.SwitchBg(0);
+        //CameraHandler.Instance.ResetToOriginalView();
+        //UIHandler.Instance.DisplayNoAds();
 
         countTurn++;
         PlayerPrefs.SetInt("CountTurn", countTurn);
@@ -134,7 +134,6 @@ public class GameManager : MonoSingleton<GameManager>
         isChallenge = true;
         isNormal = false;
         CameraHandler.Instance.ResetToOriginalView();
-        UIHandler.Instance.DisplayNoAds();
     }
 
 #if UNITY_EDITOR

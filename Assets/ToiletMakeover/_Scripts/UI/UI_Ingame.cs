@@ -11,7 +11,6 @@ public class UI_Ingame : MonoBehaviour
     [SerializeField] private Button doneBtn;
     [SerializeField] private GameObject submitBtn;
     [SerializeField] private GameObject battleBtn;
-    [SerializeField] private GameObject previewChallenge;
     [SerializeField] private List<RectTransform> tabMenuElements;
 
     private bool isReadyToArrangeItem = false;
@@ -22,37 +21,9 @@ public class UI_Ingame : MonoBehaviour
         Input.multiTouchEnabled = false;
         doneBtn.interactable = true;
         
-        HandleChallengeMode();
 
-        HandleArrangeItem();
     }
 
-    private void HandleChallengeMode()
-    {
-        if (GameManager.Instance.IsChallenge) previewChallenge.SetActive(true);
-        else previewChallenge.SetActive(false);
-    }
-
-    private void HandleArrangeItem()
-    {
-        Debug.LogError("Hoang1");
-
-        if (GameManager.Instance.mode == GameMode.PkMode)
-        {
-            Debug.LogError("Hoang2");
-
-            isReadyToArrangeItem = true;
-        }
-        else
-        {
-            if (isReadyToArrangeItem)
-            {
-                Debug.LogError("Hoang3");
-                isReadyToArrangeItem = false;
-                ShopController.Instance.SortAllItem();
-            }
-        }
-    }
 
     private void OnDisable()
     {
@@ -85,19 +56,14 @@ public class UI_Ingame : MonoBehaviour
         {
             doneBtn.gameObject.SetActive(true);
             nextBtn.SetActive(false);
-            battleBtn.SetActive(false);
         }
         else if (GameManager.Instance.IsChallenge)
         {
-            submitBtn.SetActive(true);
             nextBtn.SetActive(false);
-            battleBtn.SetActive(false);
         }
         else
         {
-            battleBtn.SetActive(true);
             nextBtn.SetActive(false);
-            submitBtn.SetActive(false);
         }
     }
 
@@ -105,8 +71,6 @@ public class UI_Ingame : MonoBehaviour
     public void OnClickPreviousBtn()
     {
         doneBtn.gameObject.SetActive(false);
-        submitBtn.SetActive(false);
-        battleBtn.SetActive(false);
         nextBtn.SetActive(true);
     }
 

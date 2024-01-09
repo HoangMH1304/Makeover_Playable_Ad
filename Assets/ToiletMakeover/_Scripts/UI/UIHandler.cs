@@ -87,35 +87,30 @@ public class UIHandler : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        this.RegisterListener(EventID.OnReplay, (param) => OnReplay());
-        this.RegisterListener(EventID.OnReplayPK, (param) => OnPlayAgainPkMode());
+
         this.RegisterListener(EventID.OnStart, (param) => OnFadeInLobby());
-        this.RegisterListener(EventID.OnBuyItem, (param) => confirmPanel.SetActive(true));
-        this.RegisterListener(EventID.OnEnterLeaderboard, (param) => OnFadeInLeaderboard());
 
         aspectRatio = (float)Screen.height / (float)Screen.width;
         widthCanvas = (int)(1920 / aspectRatio);
 
-        coinCount = goldNum.GetComponent<CountNumber>();
         characterManager = character.GetComponent<CharacterManager>();
     }
 
     private void Start()
     {
         //DisplayNoAds();
-        if (PlayerPrefs.GetInt("FirstPlayChallengeMode") == 0)
-        {
-            PlayerPrefs.SetInt("FirstPlayChallengeMode", 1);
-            uI_Lobby.NormalMode();
-            uI_Lobby.gameObject.SetActive(true);
-        }
-        else
-        {
-            GameManager.Instance.ChangeGameMode(GameMode.IdleHome);
-            loadingPanel.SetActive(true);
-            StartCoroutine(DelayOpeningZoom(3.5f));
-            SoundManager.Instance.PlaySound(Sound.bg2);
-        }
+        uI_Lobby.NormalMode();
+        //if (PlayerPrefs.GetInt("FirstPlayChallengeMode") == 0)
+        //{
+        //    PlayerPrefs.SetInt("FirstPlayChallengeMode", 1);
+        //}
+        //else
+        //{
+        //    GameManager.Instance.ChangeGameMode(GameMode.IdleHome);
+        //    loadingPanel.SetActive(true);
+        //    StartCoroutine(DelayOpeningZoom(3.5f));
+        //    SoundManager.Instance.PlaySound(Sound.bg2);
+        //}
     }
 
     IEnumerator DelayOpeningZoom(float delayTime)
@@ -169,7 +164,6 @@ public class UIHandler : MonoBehaviour
         }
         //
         SoundManager.Instance.PlaySound(Sound.done);
-        SfxController.Instance.Vibrate();
         SoundManager.Instance.PauseSound(Sound.bg);
         SoundManager.Instance.PlaySound(Sound.outtro);
     }
@@ -197,35 +191,15 @@ public class UIHandler : MonoBehaviour
             bgAnim.SetActiveBgAnim();
         }
 
-        uI_AnchorTop.gameObject.SetActive(false);
         uI_Ingame.gameObject.SetActive(false);
 
         PlayDanceAnimForMonster();
 
-        PlayerPrefs.SetInt("PlayTime", PlayerPrefs.GetInt("PlayTime", 1) + 1);
-        ShowReview();
 
-        MonsterCollection.Instance.CreateMonsterCard();
-        //MonsterStackHolder.Instance.monsterStack.Push(characterManager);
+        uI_Result.gameObject.SetActive(true);
+        moneyRain.Play();
 
-        if (GameManager.Instance.IsChallenge)
-        {
-            uI_AnchorTop.DisplayTopBarEndgame();
-            uI_AnchorTop.ToggleNoAdBtn(false);
-        }
-        else
-        {
-            int numUnlock = PlayerPrefs.GetInt("PkUnlockLeft", 1) + 1;
-
-            PlayerPrefs.SetInt("PkUnlockLeft", numUnlock);
-            PlayerPrefs.SetInt("ChallengeUnlockLeft", numUnlock);
-            
-
-            uI_Result.gameObject.SetActive(true);
-            moneyRain.Play();
-
-            yield return new WaitForSeconds(1.5f);
-        }
+        yield return new WaitForSeconds(1.5f);
 
 
         yield return new WaitForSeconds(1f);
@@ -259,73 +233,11 @@ public class UIHandler : MonoBehaviour
     }
     #endregion
 
-    #region result_panel_Area
-
-    public void OnReplay()
-    {
-        curtainAnim.gameObject.SetActive(false);
-        bgAnim.DeactiveBgAnim();
-
-        uI_Result.gameObject.SetActive(false);
-        previewLevelChallengePanel.gameObject.SetActive(false);
-        levelSelection.SetActive(false);
-        sharePanel.SetActive(false);
-        if (returnHome)
-            OnFadeOut();
-        else
-        {
-            uI_AnchorTop.DisplayTopBarIngame();
-            uI_AnchorTop.ToggleNoAdBtn(true);
-            uI_Ingame.gameObject.SetActive(true);
-        }
-    }
-
-    public void OnPlayAgainPkMode()
-    {
-        bgAnim.DeactiveBgAnim();
-
-
-        uI_Ingame.gameObject.SetActive(false);
-        uI_AnchorTop.DisplayTopBarHome();
-        uI_AnchorTop.ToggleHomeBtn(false);
-        //uI_Lobby.gameObject.SetActive(true);
-
-    }
-
-    private void ShowReview()
-    {
-        if (PlayerPrefs.GetInt("PlayTime", 1) == PlayerPrefs.GetInt("level_show_rate", 5) && PlayerPrefs.GetInt("Rate", 0) == 0)
-        {
-            PlayerPrefs.SetInt("Rate", 1);
-            StartCoroutine(DoShowRate());
-        }
-    }
-
-    IEnumerator DoShowRate()
-    {
-        MyDebug.LogWarning("Show Review");
-        yield return null;
-    }
-    #endregion
 
     #region TrasitionEffect
     public void OnFadeInLobby()  //lobby -> ingame
     {
-        fade.gameObject.SetActive(true);
-        fade.DOKill();
-        fade.DOFade(0, 0);
-        fade.DOFade(1, 0.01f).SetEase(Ease.InOutSine).OnComplete(() =>
-        {
-            uI_Lobby.gameObject.SetActive(false);
-            //uI_AnchorTop.DisplayTopBar(true);
-            uI_AnchorTop.DisplayTopBarIngame();
-            uI_AnchorTop.ToggleNoAdBtn(true);
-            fade.DOFade(0, 0.5f).SetEase(Ease.InOutSine).OnComplete(() =>
-            {
-                fade.gameObject.SetActive(false);
-            });
-            uI_Ingame.gameObject.SetActive(true);
-        });
+        uI_Ingame.gameObject.SetActive(true);
     }
 
     public void OnFadeInLeaderboard() // lobby --> leaderboard
@@ -366,7 +278,6 @@ public class UIHandler : MonoBehaviour
         _fade.DOFade(1, 0.01f).SetEase(Ease.InOutSine).OnComplete(() =>
         {
             leaderboard.SetActive(false);
-            uI_Lobby.gameObject.SetActive(true);
             //uI_AnchorTop.DisplayTopBar(true);
             uI_AnchorTop.DisplayTopBarHome();
             uI_AnchorTop.ToggleHomeBtn(false);
@@ -437,24 +348,11 @@ public class UIHandler : MonoBehaviour
             //uI_AnchorTop.gameObject.SetActive(false);
             uI_AnchorTop.DisplayTopBarHome();
             uI_AnchorTop.ToggleHomeBtn(false);
-            uI_Result.gameObject.SetActive(false);
             uI_Lobby.gameObject.SetActive(true);
             fade.DOFade(0, 0.5f).SetEase(Ease.InOutSine).OnComplete(() => fade.gameObject.SetActive(false));
         });
     }
 
-    public void OnFadeShare() //share -> endgame
-    {
-        fade.gameObject.SetActive(true);
-        fade.DOKill();
-        fade.DOFade(0, 0);
-        fade.DOFade(1, 0.01f).SetEase(Ease.InOutSine).OnComplete(() =>
-        {
-            sharePanel.gameObject.SetActive(false);
-            uI_Result.gameObject.SetActive(true);
-            fade.DOFade(0, 0.5f).SetEase(Ease.InOutSine).OnComplete(() => fade.gameObject.SetActive(false));
-        });
-    }
     #endregion
 
     #region NoAds
@@ -468,19 +366,7 @@ public class UIHandler : MonoBehaviour
         internetMessagePanel.SetActive(false);
     }
 
-    public void DisplayNoAds()
-    {
-        if (PrefInfo.IsUsingAd())
-        {
-            noAdBtn.SetActive(true);
-            //noAdBtn_1.SetActive(true);
-        }
-        else
-        {
-            noAdBtn.SetActive(false);
-            //noAdBtn_1.SetActive(false);
-        }
-    }
+   
 
 
     #endregion

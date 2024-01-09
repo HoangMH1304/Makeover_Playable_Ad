@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebac7517ba888444ac3049514ca33eb, type: 3}
   m_Name: 98
   m_EditorClassIdentifier: 
-  id: 97
+  id: 10
   bodypartName: hoppy
   preview: {fileID: 21300000, guid: da01fdb86354647dfb9b15a4e4a8182d, type: 3}
   part: {fileID: 21300000, guid: 2662212f529965542845e21e6028f0c4, type: 3}
-  isAd: 1
+  isAd: 0
   adNum: 1
   price: 0
   bodyPart: 4
