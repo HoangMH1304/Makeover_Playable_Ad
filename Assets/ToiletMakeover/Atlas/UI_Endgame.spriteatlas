@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI_Endgame
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 50
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: c0883ec090015a040a63cc299580ea06, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 1c4c4fb14d599c743808b7bb4b41406c, type: 3}
+  - {fileID: 21300000, guid: d93660143ba160441b996679bb72fb32, type: 3}
+  - {fileID: 21300000, guid: 3ff51da4d3079124b8e26325f60a2bb0, type: 3}
+  - {fileID: 21300000, guid: 21a712b4894a9294e9c82adffe126203, type: 3}
+  - {fileID: 21300000, guid: 402b928594752cc48820c7cb2b49f1f9, type: 3}
+  - {fileID: 21300000, guid: 54203137683698340bdc118dbcfcce1e, type: 3}
+  - {fileID: 21300000, guid: 4335dd694e760c840998543f089ebc13, type: 3}
+  - {fileID: 21300000, guid: e21beb3bda54e67418a74d38782bad8e, type: 3}
+  - {fileID: 21300000, guid: a996ec3bf6dfdb14e977e519a05c4fab, type: 3}
+  - {fileID: 21300000, guid: e1f45cbe208fac448af564c8039f5d3a, type: 3}
+  - {fileID: 21300000, guid: d662ee5f08f91814b967fd3b19b4a779, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - share_bubble
+  - endgame_btn_goback
+  - endgame_pointer_new
+  - play_btn_othestages
+  - endgame_btn_x2_value
+  - endgame_diameter2 (1)
+  - endgame_btn_x2
+  - endgame_btn_share
+  - endgame_btn_earncoin
+  - ico_ad
+  - ico_free 1
+  m_RenderDataMap: {}
+  m_Tag: UI_Endgame
+  m_IsVariant: 0

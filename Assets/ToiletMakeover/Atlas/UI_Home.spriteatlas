@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI_Home
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 50
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 5c770856dff5d9646a2d2e1c2c734468, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: bec3ee1009ef96b43b4fb65961c26bc2, type: 3}
+  - {fileID: 21300000, guid: 612e905085e3e2c4283faf600dbf91e8, type: 3}
+  - {fileID: 21300000, guid: 663077601288c5946af4e652fb50eb4b, type: 3}
+  - {fileID: 21300000, guid: 0831feb038af1a045b05bc6e80e7690a, type: 3}
+  - {fileID: 21300000, guid: a0873cd07b419c64d9940e8ea50af853, type: 3}
+  - {fileID: 21300000, guid: 1897e8e0edd10624d96e7fad18396506, type: 3}
+  - {fileID: 21300000, guid: 45f98341df39f294cabde70d2dc7755e, type: 3}
+  - {fileID: 21300000, guid: 927d9d711486b77468d6606d53a9d4a9, type: 3}
+  - {fileID: 21300000, guid: 063544f14efb61a47a2dbbd68a05cbb5, type: 3}
+  - {fileID: 21300000, guid: 0de85a722325c2c4ba80556480ed6094, type: 3}
+  - {fileID: 21300000, guid: 15585e82cd632a64f9284e37783a5fa6, type: 3}
+  - {fileID: 21300000, guid: b111a2e23a301874494fd539efb8d472, type: 3}
+  - {fileID: 21300000, guid: 3099bb3371570ca4b803adc313299ea9, type: 3}
+  - {fileID: 21300000, guid: 6d314973bdf081a45a918566f080bdc6, type: 3}
+  - {fileID: 21300000, guid: f4fefed3e250fed42abdfbf73ff8695a, type: 3}
+  - {fileID: 21300000, guid: 978a5524e7e37f742920d4b6778ed777, type: 3}
+  - {fileID: 21300000, guid: c8a2072475cf7f247bf5dbe90d955322, type: 3}
+  - {fileID: 21300000, guid: 9a9f24a44ba06f24fa2bcc7aea716ad2, type: 3}
+  - {fileID: 21300000, guid: 4c6b8355431f8104285a312b05eda323, type: 3}
+  - {fileID: 21300000, guid: ff448ce563145614692b544f8f73bcbe, type: 3}
+  - {fileID: 21300000, guid: ba6571f5cc2be4a4e9500f243e0b68a7, type: 3}
+  - {fileID: 21300000, guid: acd73b4614197af45a724ad7f1e549ba, type: 3}
+  - {fileID: 21300000, guid: 25eff2a69e1b93b48928c49f153515f0, type: 3}
+  - {fileID: 21300000, guid: 52dfe3c6e63b1cc42acd9cdb2f3cab0d, type: 3}
+  - {fileID: 21300000, guid: 982d6937cfd4eb94d8bda4b43f306177, type: 3}
+  - {fileID: 21300000, guid: 34c4e87742558c24580f6b357646a913, type: 3}
+  - {fileID: 21300000, guid: 3b417ea72123c824389af4b20285f501, type: 3}
+  - {fileID: 21300000, guid: b2a999c799be02c40a6e811f4e6a296d, type: 3}
+  - {fileID: 21300000, guid: 4eab6cd7252d5a442a842f49f9857674, type: 3}
+  - {fileID: 21300000, guid: be89e8f774641da498b6d1e8bd169507, type: 3}
+  - {fileID: 21300000, guid: daaf3bf7fc3e97045b0476de6125c969, type: 3}
+  - {fileID: 21300000, guid: fd608108222f4f54992b09170f47f741, type: 3}
+  - {fileID: 21300000, guid: e2f38d58c8ab99841a58a2e261f8f331, type: 3}
+  - {fileID: 3408396956906815219, guid: a62982786df4ace4793e833cf3534bf5, type: 3}
+  - {fileID: -2529727908409746939, guid: a62982786df4ace4793e833cf3534bf5, type: 3}
+  - {fileID: -4073768675153330050, guid: a62982786df4ace4793e833cf3534bf5, type: 3}
+  - {fileID: 8514851726202694273, guid: a62982786df4ace4793e833cf3534bf5, type: 3}
+  - {fileID: -8891307509674096357, guid: a62982786df4ace4793e833cf3534bf5, type: 3}
+  - {fileID: 109396606488512027, guid: a62982786df4ace4793e833cf3534bf5, type: 3}
+  - {fileID: 21300000, guid: 6df5feb837ec6d3428bfb63323f034f8, type: 3}
+  - {fileID: 21300000, guid: 3af9c709d0c809c4d8d8d83919b512a8, type: 3}
+  - {fileID: 21300000, guid: 6a7f92290383d40488f0aa9d597a9533, type: 3}
+  - {fileID: 21300000, guid: d326c26953440754b84532029b57f2c1, type: 3}
+  - {fileID: 21300000, guid: ed9638d90badd054c9464e0a1f565d2a, type: 3}
+  - {fileID: 21300000, guid: 77cabc3a605395b4085c1ea68ea6b7b4, type: 3}
+  - {fileID: 21300000, guid: 2ca8e01bbc1a9554aa1d3da25a054cb2, type: 3}
+  - {fileID: 21300000, guid: e7e51c1b8e1c8874ca8929afa7d89fc5, type: 3}
+  - {fileID: 21300000, guid: 4277c55b3be51d14d87d5982d434a99f, type: 3}
+  - {fileID: 21300000, guid: 7b859a6ba879bf84ab54b876cc786388, type: 3}
+  - {fileID: 21300000, guid: 68d2618b3822d3f44a8e918a97e3594e, type: 3}
+  - {fileID: 21300000, guid: d7ab7fdb6f8d74641bbe69cfd7128ae9, type: 3}
+  - {fileID: 21300000, guid: 7fb1f22cb82c6a846afa9e48d8fc9a71, type: 3}
+  - {fileID: 21300000, guid: 41637aac13c5d8448a3625fc15ef3175, type: 3}
+  - {fileID: 21300000, guid: 2a7ed76da25fc1a408b22d2cb102aa89, type: 3}
+  - {fileID: 21300000, guid: f9d8cc6df97b0ef4aa4fff548a50c7d2, type: 3}
+  - {fileID: 21300000, guid: 3d1937ad679cd974b9e19f096ab7ea8d, type: 3}
+  - {fileID: 21300000, guid: abe0af3ecfe1a284c993895e392ac5e0, type: 3}
+  - {fileID: 21300000, guid: ee5dce7ea37c4ab44bf4252253b1c3b3, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - home_btn_building
+  - tut_hand
+  - idle_btn_leaderboard
+  - ico_speed (1)
+  - ico_number
+  - idle_speed_panel
+  - tab_on
+  - home_btn_spin
+  - idle_btn_eye
+  - BG_border
+  - idle_risepanel
+  - hometab_bar
+  - idle_booster_ad
+  - tab_ico_play
+  - idle_ico_rise
+  - flyreward
+  - claim
+  - ico_speed3
+  - booster_teddy
+  - noti
+  - tab_ico_dancebattle
+  - lab_ico_lock
+  - tab_ico-challenge
+  - ico_character
+  - home_btn_showtab
+  - idle_bar_money
+  - booster_heart
+  - idle_ico_bglock
+  - home_btn_leaderboard
+  - x2reward
+  - idle_ico_trash
+  - hometab_border
+  - idle_card
+  - moneyrain_4
+  - moneyrain_5
+  - moneyrain_2
+  - moneyrain_3
+  - moneyrain_0
+  - moneyrain_1
+  - ico_free
+  - idle_bar_character
+  - tab_ico_comedy
+  - home_btn_settings
+  - tab_ico_leaderboard
+  - home_btn_collection_left
+  - idle_ico_plus
+  - idle_btn_eye2
+  - home_btn_dailyreward
+  - ico_money
+  - idle_booster_free
+  - endgame_btn_share
+  - ico_lockyellow
+  - tab_ico_shop
+  - ico_ad
+  - ico_autoclick
+  - idle_neonsign
+  - booster_rose
+  - booster_rocket
+  m_RenderDataMap: {}
+  m_Tag: UI_Home
+  m_IsVariant: 0

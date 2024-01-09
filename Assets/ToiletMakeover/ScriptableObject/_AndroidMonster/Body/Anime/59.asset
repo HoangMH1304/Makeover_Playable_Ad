@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebac7517ba888444ac3049514ca33eb, type: 3}
+  m_Name: 59
+  m_EditorClassIdentifier: 
+  id: 58
+  bodypartName: zoro
+  preview: {fileID: 21300000, guid: 709f88ffebdb8ba4d82cde9a9f315a22, type: 3}
+  part: {fileID: 21300000, guid: fe99cfccfd600064f88c5c3699d0ffee, type: 3}
+  isAd: 1
+  adNum: 1
+  price: 0
+  bodyPart: 4
+  specialPos: 0
+  realPos: {x: 0, y: 0, z: 0}
+  catalogue: 1
+  dataAsset: 1
+  pkTheme: 0

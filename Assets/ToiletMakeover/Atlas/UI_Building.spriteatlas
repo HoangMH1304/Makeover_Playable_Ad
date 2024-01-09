@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI_Building
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 65
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: dc22082c2ee5c6f44ad0a236d6ff18c4, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 204a84915d72905478fa7e1399c8bd8a, type: 3}
+  - {fileID: 21300000, guid: 1be9ae739dcd9a44dac20e13f0ae8bdc, type: 3}
+  - {fileID: 21300000, guid: 5a4b3aa3024c3eb4da38e0b8059aa560, type: 3}
+  - {fileID: 21300000, guid: 3079e8e4cd1441945b38deb2bebb4565, type: 3}
+  - {fileID: 21300000, guid: 83ac8bd58d89b5d4a818616864eeb594, type: 3}
+  - {fileID: 21300000, guid: 781e01b6eadb0354eb2c1e0fdae6239e, type: 3}
+  - {fileID: 21300000, guid: 31a88d97307c15746ad97d1ed86fc9a7, type: 3}
+  - {fileID: 21300000, guid: d80471380c4773c45a125d5fb82e5e42, type: 3}
+  - {fileID: 21300000, guid: b8489898450958d4798050675aa1dae5, type: 3}
+  - {fileID: 21300000, guid: d4ac53aa8998dcd41b3ebaca9da19614, type: 3}
+  - {fileID: 21300000, guid: 184e372c1ffd7a04b9589e297bf4960f, type: 3}
+  - {fileID: 21300000, guid: 45d65d4cd0e63db478db00a2d4d04606, type: 3}
+  - {fileID: 21300000, guid: c1e4024e871a8944eb7bbf9aa8a6a14e, type: 3}
+  - {fileID: 21300000, guid: 77e9bd4e7b65d8c49970ae1407c0432c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - building_panel_item1
+  - building_ico_check
+  - building_btn_previous
+  - border
+  - border1
+  - building_btn_money
+  - ico_ad
+  - borderplus
+  - building_btn_ad
+  - building_panel
+  - building_btn_next
+  - Triangle 1
+  - building_btn_close
+  - building_panel_itemusing
+  m_RenderDataMap: {}
+  m_Tag: UI_Building
+  m_IsVariant: 0

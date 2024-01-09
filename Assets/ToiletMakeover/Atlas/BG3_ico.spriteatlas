@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BG3_ico
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 65
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 87d682dfe0b86bf4391d9a17fb4a663a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c05d0030f4d32c7439e98f514ee756e7, type: 3}
+  - {fileID: 21300000, guid: d2c4cc72f9109c54980585d27e85f252, type: 3}
+  - {fileID: 21300000, guid: 67c448758cec4d644b593fa782693d60, type: 3}
+  - {fileID: 21300000, guid: 41326daa7717e89449285b3201c4821a, type: 3}
+  - {fileID: 21300000, guid: 13a8190b3ba87e444afffc47ca695764, type: 3}
+  - {fileID: 21300000, guid: 907e7c7b2b553e14e9bc1744da207d3a, type: 3}
+  - {fileID: 21300000, guid: 5f594c7e712335a48897844d04352394, type: 3}
+  - {fileID: 21300000, guid: 88372fff507a8874c84373899b1922bc, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - BG4_decor_i
+  - BG3_pond_i
+  - BG3_circus_i
+  - BG3_basketballcourt_i
+  - BG3_flowers_i
+  - BG3_picnic_i
+  - BG3_wood_i
+  - BG3_icecreamtruck_i
+  m_RenderDataMap: {}
+  m_Tag: BG3_ico
+  m_IsVariant: 0

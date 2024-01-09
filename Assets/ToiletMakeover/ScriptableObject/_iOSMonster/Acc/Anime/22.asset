@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebac7517ba888444ac3049514ca33eb, type: 3}
+  m_Name: 22
+  m_EditorClassIdentifier: 
+  id: 42
+  bodypartName: 
+  preview: {fileID: 21300000, guid: 46579d7b1c3bbc841a7dee96e6b45a95, type: 3}
+  part: {fileID: 21300000, guid: bbad421b8d91ba84e9b5feccb2dfb047, type: 3}
+  isAd: 1
+  adNum: 1
+  price: 0
+  bodyPart: 3
+  specialPos: 1
+  realPos: {x: 0, y: 1.6, z: 0}
+  catalogue: 1
+  dataAsset: 0
+  pkTheme: 0
+  priority: 0
