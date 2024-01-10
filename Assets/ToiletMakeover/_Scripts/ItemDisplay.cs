@@ -69,36 +69,6 @@ public class ItemDisplay : MonoBehaviour
         }
     }
 
-    //tắt star khi chơi xong mode pk
-    private void OnEnable()
-    {
-        CheckForPurchaseRemoveAds();
-        //starPk.SetActive(false);
-    }
-
-
-
-    public void MarkSuggestItem()
-    {
-        starPk.SetActive(true);
-        if (item.bodyPart == BodyPart.Head || item.bodyPart == BodyPart.Body)
-            transform.SetAsFirstSibling();
-        else
-            transform.SetSiblingIndex(1);
-    }
-
-    public void CheckForPurchaseRemoveAds()
-    {
-        if (!PrefInfo.IsUsingAd() && PlayerPrefs.GetInt("Remote_RewardAds", 1) == 0)
-        {
-            if (item.isAd)
-            {
-                PlayerPrefs.SetInt(item.bodyPart.ToString() + item.id + "Ad", 1);
-                lockSlot.SetActive(false);
-                adSlot.SetActive(false);
-            }
-        }
-    }
 
     private void OnDisable()
     {

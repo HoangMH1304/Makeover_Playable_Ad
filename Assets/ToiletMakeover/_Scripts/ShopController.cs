@@ -214,31 +214,6 @@ public class ShopController : MonoBehaviour
     }
 
     #region Reset_shop_item
-    private void ResetShopItem()
-    {
-        DeselectItem();
-        OnInitialSpecs();
-    }
-
-    private void DeselectItem() //need optimize
-    {
-        headContent.Find(PlayerPrefs.GetInt("Head").ToString()).GetChild(1).gameObject.SetActive(false);
-        eyeContent.Find(PlayerPrefs.GetInt("Eye").ToString()).GetChild(1).gameObject.SetActive(false);
-        mouthContent.Find(PlayerPrefs.GetInt("Mouth").ToString()).GetChild(1).gameObject.SetActive(false);
-        accContents.Find(PlayerPrefs.GetInt("Acc").ToString()).GetChild(1).gameObject.SetActive(false);
-        bodyContent.Find(PlayerPrefs.GetInt("Body").ToString()).GetChild(1).gameObject.SetActive(false);
-
-        isPickHead = false;
-        isPickEye = false;
-        isPickMouth = false;
-        isPickAcc = false;
-        isPickBody = false;
-
-        headHolder.SetParent(boneFollower.transform);
-        headHolder.localPosition = new Vector3(3, 1);
-        headHolder.localRotation = Quaternion.Euler(0, 0, -90f);
-    }
-
     public void OnInitialSpecs()
     {
         ShopController.Instance.BodyPart = BodyPart.Head;
@@ -461,29 +436,6 @@ public class ShopController : MonoBehaviour
     }
     #endregion
 
-    public void SetPriorityItemPkMode(BodyPart bodyPart, int id)
-    {
-        switch (bodyPart)
-        {
-            case BodyPart.Head:
-                headItemDisplay[id - 1].MarkSuggestItem();
-                break;
-            case BodyPart.Eye:
-                eyeItemDisplay[id].MarkSuggestItem();
-                break;
-            case BodyPart.Mouth:
-                mouthItemDisplay[id].MarkSuggestItem();
-                break;
-            case BodyPart.Acc:
-                accItemDisplay[id].MarkSuggestItem();
-                break;
-            case BodyPart.Body:
-                bodyItemDisplay[id - 1].MarkSuggestItem();
-                break;
-            default:
-                break;
-        }
-    }
 
     public void InitItems(Item[] items, Transform content, List<ItemDisplay> l, int startIdx = 0)  // grimace, normal, anime
     {
@@ -521,55 +473,6 @@ public class ShopController : MonoBehaviour
         Destroy(templateObject.gameObject);
     }
 
-    //head: 79, eye: 108, mouth: 61, acc: 58, body: 81
-
-    private void SortBodyPartItem(Transform content, int extraItem)
-    {
-        var i1 = content.GetChild(0);
-        var i2 = content.GetChild(1);
-        var i3 = content.GetChild(2);
-        var i4 = content.GetChild(3);
-        var i5 = content.GetChild(4);
-        var i6 = content.GetChild(5);
-
-        i1.SetSiblingIndex(int.Parse(i1.name));
-        i2.SetSiblingIndex(int.Parse(i2.name));
-        i3.SetSiblingIndex(int.Parse(i3.name));
-        i4.SetSiblingIndex(int.Parse(i4.name));
-        i5.SetSiblingIndex(int.Parse(i5.name));
-        i6.SetSiblingIndex(int.Parse(i6.name));
-
-
-        //int sortedQuantity = 7;
-        //while (sortedQuantity > 0)
-        //{
-        //    var item = content.GetChild(0);
-        //    int idx = int.Parse(item.name);
-
-        //    item.SetSiblingIndex(idx);
-        //    sortedQuantity--;
-        //}
-
-        //for(int i = 0; i < 6; i++)
-        //{
-        //    var item = content.GetChild(i);
-        //    int idx = int.Parse(item.name);
-
-        //    item.SetSiblingIndex(idx);
-        //}
-        //content.GetChild(extraItem).SetAsFirstSibling();
-    }
-
-    public void SortAllItem()
-    {
-        Debug.LogError("Sorted.....");
-        SortBodyPartItem(headContent, 79);
-        SortBodyPartItem(eyeContent, 108);
-        SortBodyPartItem(mouthContent, 61);
-        SortBodyPartItem(accContents, 58);
-        SortBodyPartItem(bodyContent, 81);
-    }
-
     //====================Just update data ongui by tool=================
 
     public void HandleSortItemIngame()
@@ -581,7 +484,6 @@ public class ShopController : MonoBehaviour
         SortArr(bodies);
     }
 
-    int[] map = new[] { 3, 2, 1 };
 
     private void SortArr(Item[] items)
     {

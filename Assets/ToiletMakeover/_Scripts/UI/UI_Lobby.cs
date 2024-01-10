@@ -14,41 +14,11 @@ public class UI_Lobby : MonoBehaviour
 
     public void NormalMode()
     {
-        GameManager.Instance.ChangeGameMode(GameMode.Normal);
         EnterGame();
     }
 
     public void EnterGame()
     {
         this.PostEvent(EventID.OnStart);
-        if (PlayerPrefs.GetInt("IsFirstOpenGame", 0) == 0)
-        {
-            PlayerPrefs.SetInt("IsFirstOpenGame", 1);
-        }
-        else
-            SoundManager.Instance.PlaySound(Sound.start);
     }
-
-    public void ChallengeMode()
-    {
-        SoundManager.Instance.PlaySound(Sound.done);
-        GameManager.Instance.ChangeGameMode(GameMode.Challenge);
-    }
-
-    public void OnClickSetting()
-    {
-        OpenSetting();
-    }
-
-    private void OpenSetting()
-    {
-        settingPanel.SetActive(true);
-    }
-
-    public void OnClickCloseSetting()
-    {
-        settingPanel.SetActive(false);
-    }
-
-
 }

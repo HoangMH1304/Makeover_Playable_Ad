@@ -20,7 +20,7 @@ public class UI_Ingame : MonoBehaviour
 
         Input.multiTouchEnabled = false;
         doneBtn.interactable = true;
-        
+
 
     }
 
@@ -52,19 +52,8 @@ public class UI_Ingame : MonoBehaviour
 
     public void ChangeIconToDone()
     {
-        if (GameManager.Instance.IsNormal)
-        {
-            doneBtn.gameObject.SetActive(true);
-            nextBtn.SetActive(false);
-        }
-        else if (GameManager.Instance.IsChallenge)
-        {
-            nextBtn.SetActive(false);
-        }
-        else
-        {
-            nextBtn.SetActive(false);
-        }
+        doneBtn.gameObject.SetActive(true);
+        nextBtn.SetActive(false);
     }
 
 

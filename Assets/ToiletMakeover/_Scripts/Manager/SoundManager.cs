@@ -122,17 +122,6 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    //public void AdjustVolume( float volume)
-    //{
-    //    SoundAudioClip soundAudioClip = GetAudioClip(sound);
-    //    if (soundAudioClip == null) return;
-    //    if (PlayerPrefs.GetInt(SOUND) == 1)
-    //    {
-    //        soundAudioClip.source.volume = volume;
-    //        soundAudioClip.source.Play();
-    //    }
-    //}    
-
     public void PauseSound(Sound sound, bool toggle = false)
     {
         SoundAudioClip soundAudioClip = GetAudioClip(sound);

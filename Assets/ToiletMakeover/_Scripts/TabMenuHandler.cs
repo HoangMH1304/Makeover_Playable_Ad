@@ -45,58 +45,13 @@ public class TabMenuHandler : MonoBehaviour
     {
         firstPlay = false;
         InitState();
-        InitConditionToShowSubBtn();
-
     }
 
     private void OnEnable()
     {
         isShow = false;
-        subscriptionBtn.DOKill();
-        subscriptionBtn.DOLocalMoveX(150, 0);
 
         if (!firstPlay) InitState();
-    }
-
-    public void HandleShowBtnSub()
-    {
-        if (GameManager.Instance.IsChallenge) return;
-        countTurnPlayGame++;
-        if (countTurnPlayGame % limitCountTurnShowSub == 0)
-        {
-            Invoke(nameof(ShowSubscriptionBtn), 2f);
-            Invoke(nameof(HideSubscriptionBtn), timeShowSub);
-        }
-    }
-
-    private void ShowSubscriptionBtn()
-    {
-        if (PrefInfo.IsUsingAd())
-        {
-            subscriptionBtn.DOLocalMoveX(450, 0.5f).SetEase(Ease.InOutSine);
-            isShow = true;
-        }
-    }
-
-    private void HideSubscriptionBtn()
-    {
-        subscriptionBtn.DOLocalMoveX(150, 0.5f).SetEase(Ease.InOutSine);
-    }
-
-    private void InitConditionToShowSubBtn()
-    {
-        if (timeShowSub == 0)
-        {
-
-            //Debug.LogError("timeShowSub: " + timeShowSub);
-            //Debug.LogError("countTurnPlayGame: " + countTurnPlayGame);
-        }
-    }
-
-    private void OnDisable()
-    {
-        CancelInvoke(nameof(ShowSubscriptionBtn));
-        CancelInvoke(nameof(HideSubscriptionBtn));
     }
 
     private void InitState()
