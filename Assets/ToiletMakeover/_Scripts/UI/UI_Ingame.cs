@@ -89,17 +89,4 @@ public class UI_Ingame : MonoBehaviour
         SoundManager.Instance.PauseSound(Sound.outtro);
         SoundManager.Instance.PlaySound(Sound.bg2);
     }
-
-
-    private void OnReward()
-    {
-        RewardEffect.Instance.SetUp(0, 20, UIHandler.Instance.UI_Result.rewardPos, true);
-        SoundManager.Instance.PlaySFX(Sound.cashCoin, 1f);
-        Invoke("IncreseCoin", 1.3f);
-    }
-
-    private void IncreseCoin()
-    {
-        GameController.Instance.UpdateGold(20);
-    }
 }

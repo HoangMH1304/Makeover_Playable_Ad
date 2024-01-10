@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 using System;
-using Sirenix.OdinInspector;
 
 public class ScaleBodyPartAdjust : MonoBehaviour
 {
-    [Title("Slider")]
-    [SerializeField] private TextMeshProUGUI scaleText;
+    [Header("Slider")]
     [SerializeField] private Slider slider;
 
 
@@ -41,6 +38,5 @@ public class ScaleBodyPartAdjust : MonoBehaviour
         if (targetScaleBodyPart == null) return;
         var scale = Math.Round(slider.value, 1);
         targetScaleBodyPart.localScale = Vector3.one * (float)scale;
-        scaleText.text = scale.ToString();
     }
 }

@@ -2,7 +2,6 @@ using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.Rendering;
 
 public class CharacterManager : MonoBehaviour
@@ -290,7 +289,7 @@ public class CharacterManager : MonoBehaviour
             }
         }
 
-        moneyFloat = Instantiate(MonsterCollection.Instance.moneyFloatCanvas, transform);
+        //moneyFloat = Instantiate(MonsterCollection.Instance.moneyFloatCanvas, transform);
         moneyFloat.transform.localPosition = new Vector3(0, 4f, 0);
 
         if (price > 0)

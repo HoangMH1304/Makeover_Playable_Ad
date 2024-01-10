@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Sirenix.OdinInspector;
 public enum BodyPart
 {
     Head,
@@ -36,14 +35,14 @@ public class Item : ScriptableObject
 {
     public int id;
     public string bodypartName;
-    [PreviewField] public Sprite preview;
-    [PreviewField] public Sprite part;
-    [Title("Currency")]
+    public Sprite preview;
+    public Sprite part;
+    [Header("Currency")]
     public bool isAd;
-    [InfoBox("Số lượng ad để unlock")]
+    //[InfoBox("Số lượng ad để unlock")]
     public int adNum = 1;
     public int price;
-    [Title("=======")]
+    [Header("=======")]
     public BodyPart bodyPart;
     public bool specialPos;
     public Vector3 realPos;
@@ -52,8 +51,8 @@ public class Item : ScriptableObject
     /// 0: là những con monster cũ dùng chung xương, 1 là monster mới xương k dùng chung
     /// </summary>
     public int dataAsset;
-    [Title("Theme")]
+    [Header("Theme")]
     public Theme pkTheme;
-    [Title("Priority")]
+    [Header("Priority")]
     public Priority priority = Priority.Low;
 }

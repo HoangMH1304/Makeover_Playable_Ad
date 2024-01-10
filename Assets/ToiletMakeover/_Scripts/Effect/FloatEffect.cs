@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using TMPro;
 
 public class FloatEffect : MonoBehaviour
 {
     [SerializeField] private Transform autoRaiseMoneyTransform;
-    [SerializeField] private TextMeshProUGUI autoRaiseMoney;
+    [SerializeField] private Text autoRaiseMoney;
     [SerializeField] private Image autoMoney;
     private Sequence sq;
     private bool requireInitTween = true;

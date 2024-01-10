@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System;
 using DG.Tweening;
 
@@ -30,7 +29,6 @@ public class TabMenuHandler : MonoBehaviour
     private bool nextable = false, prevable = true;
 
     [Header("Slider")]
-    [SerializeField] private TextMeshProUGUI scaleText;
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject handTut;
     public Transform targetScaleBodyPart = null;
@@ -41,71 +39,7 @@ public class TabMenuHandler : MonoBehaviour
     {
         Instance = this;
     }
-    #region ZoomSlider
-    private void SetBodyPart(Transform target)
-    {
-        if (target != null)
-        {
-            if (target.name.Equals("Face") && isSliderShow)
-            {
-                slider.transform.DOScaleY(0, 0);
-                return;
-            }
-            targetScaleBodyPart = target;
-        }
-    }
-
-    public void SetZoomSlideForHead()
-    {
-        slider.transform.DOScaleY(0, 0);
-    }
-
-    public void UpdateScaleData()
-    {
-        if (targetScaleBodyPart == null) return;
-        if (handTut.activeSelf) handTut.SetActive(false);
-        var scale = Math.Round(slider.value, 1);
-        targetScaleBodyPart.localScale = Vector3.one * (float)scale;
-    }
-
-    public void ShowZoomSlide()
-    {
-        if (PlayerPrefs.GetInt("HandTutSlider", 0) == 0)
-        {
-            handTut.SetActive(true);
-            PlayerPrefs.SetInt("HandTutSlider", 1);
-        }
-        isSliderShow = true;
-
-        slider.transform.DOKill();
-        slider.transform.DOScaleY(0, 0);
-        slider.transform.DOScaleY(1, 0.3f).SetEase(Ease.OutBack);
-
-        slider.value = 1;
-    }
-
-    public void HideZoomSlide()
-    {
-        if (!isSliderShow) return;
-        isSliderShow = false;
-        slider.transform.DOKill();
-        //slider.transform.DOScaleY(1, 0);
-        slider.transform.DOScaleY(0, 0.2f).SetEase(Ease.InBack);
-    }
-
-    public void SetValueSlide(float value)
-    {
-        slider.value = value;
-    }
-
-    //zoom in, zoom out btn
-    public void AddAmountToZoom(float amount)
-    {
-        SfxController.Instance.PlayTapSound();
-        //if (currentValue >= maxValue || currentValue <= minValue) return;
-        slider.value += amount;
-    }
-    #endregion
+  
 
     private void Start()
     {
@@ -117,8 +51,6 @@ public class TabMenuHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        IdleActions.OnUpdateScaleBodyPart += SetBodyPart;
-        slider.normalizedValue = 0.5f;
         isShow = false;
         subscriptionBtn.DOKill();
         subscriptionBtn.DOLocalMoveX(150, 0);
@@ -163,8 +95,6 @@ public class TabMenuHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        IdleActions.OnUpdateScaleBodyPart -= SetBodyPart;
-        handTut.SetActive(false);
         CancelInvoke(nameof(ShowSubscriptionBtn));
         CancelInvoke(nameof(HideSubscriptionBtn));
     }
@@ -180,7 +110,7 @@ public class TabMenuHandler : MonoBehaviour
         done_Btn.SetActive(false);
         next_Btn.SetActive(true);
 
-        slider.value = 1;
+        //slider.value = 1;
     }
 
     public void ResetTabs()

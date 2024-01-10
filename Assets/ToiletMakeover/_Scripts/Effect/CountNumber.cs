@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
+[RequireComponent(typeof(Text))]
 public class CountNumber : MonoBehaviour
 {
     [SerializeField]
     private float countDuration = 1;
-    [SerializeField] private TextMeshProUGUI numberText;
+    [SerializeField] private Text numberText;
     [SerializeField] private bool automaticSetNum = false;
 
     float currentValue = 0, targetValue = 0;
@@ -19,7 +18,7 @@ public class CountNumber : MonoBehaviour
     void Awake()
     {
         if (numberText == null)
-            numberText = GetComponent<TextMeshProUGUI>();
+            numberText = GetComponent<Text>();
     }
 
     void Start()

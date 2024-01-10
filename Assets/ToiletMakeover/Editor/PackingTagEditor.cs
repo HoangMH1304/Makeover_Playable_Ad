@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector.Editor;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine.U2D;
 using UnityEditor.U2D;
 
 [CustomEditor(typeof(ShopController))]
-public class PackingTagEditor : OdinEditor
+public class PackingTagEditor : Editor
 {
+#if UNITY_EDITOR
+
     SpriteAtlas atlas;
     SpriteAtlas atlas2;
     SpriteAtlas atlas3;
@@ -91,4 +94,5 @@ public class PackingTagEditor : OdinEditor
             SpriteAtlasExtensions.Add(atlas5, newObj);
         }
     }
+#endif
 }

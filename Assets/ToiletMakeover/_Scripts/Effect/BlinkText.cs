@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using TMPro;
 
 public class BlinkText : MonoBehaviour
 {
-    private TextMeshProUGUI text;
     private bool blinking = false;
 
     public bool Blinking { get => blinking; set => blinking = value; }
@@ -18,7 +16,6 @@ public class BlinkText : MonoBehaviour
 
     private void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();    
     }
     public void Blink()
     {

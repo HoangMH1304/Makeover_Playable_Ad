@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using TMPro;
 
 public class ItemDisplay : MonoBehaviour
 {
@@ -13,7 +12,6 @@ public class ItemDisplay : MonoBehaviour
     [SerializeField] private GameObject priceSlot;
     [SerializeField] private GameObject lockSlot;
     [SerializeField] private GameObject fill;
-    [SerializeField] private TextMeshProUGUI adCount;
     [SerializeField] private GameObject starPk;
 
     [SerializeField] private GameObject handTut;
@@ -106,7 +104,7 @@ public class ItemDisplay : MonoBehaviour
     {
         transform.DOKill();
     }
-    public void Show(Item _item, bool isSkipAd)
+    public void Show(Item _item)
     {
         gameObject.SetActive(true);
         item = _item;
@@ -114,25 +112,6 @@ public class ItemDisplay : MonoBehaviour
         itemSprite.SetNativeSize();
 
         RegisterListener();
-
-        CheckForPurchaseRemoveAds();
-
-        if (item.isAd && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Ad") != 1)
-        {
-            if (isSkipAd)
-            {
-                icoSkipAd.SetActive(true);
-                icoAd.SetActive(false);
-            }
-            else
-            {
-                icoSkipAd.SetActive(false);
-                icoAd.SetActive(true);
-            }
-            LockSlot(adSlot);
-        }
-        if (item.price > 0 && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Price") != 1)
-            LockSlot(priceSlot);
     }
 
     private void LockSlot(GameObject typeLock)
@@ -143,43 +122,8 @@ public class ItemDisplay : MonoBehaviour
 
     public void OnClick()
     {
-        //if (item.isAd && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Ad") != 1)
-        //{
-        //    if (GameController.Instance.IsSkipAdsTicketAvaiable())
-        //    {
-        //        OnReward();
-        //    }
-        //    else
-        //    {
-        //        HandleAdItem(item);
-        //    }
-        //    return;
-        //}
-        //if (item.price > 0 && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Price") != 1)
-        //{
-        //    HandlePriceItem();
-        //    return;
-        //}
-
-        ////show ad inters khi khong bam vao item ad
-        //HandleConditionToShowInters();
-
-
-        //if ((item.price > 0 && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Price") != 1) ||
-        //    (item.isAd && PlayerPrefs.GetInt(item.bodyPart.ToString() + item.id + "Ad") != 1))
-        //{
-        //    return;
-        //}
-
-
         this.PostEvent(EventID.OnClick, item.id);
 
-       
-
-        //anim
-        //transform.DOKill();
-        //transform.DOScale(1.05f, 0.4f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
-        //
         fill.SetActive(true);
         PlayerPrefs.SetInt(item.bodyPart.ToString(), item.id);
         SetPriceItem();
@@ -207,13 +151,6 @@ public class ItemDisplay : MonoBehaviour
     public void OnBuy()
     {
         if (item.price == 0) return;
-        if (GameController.Instance.Gold < 30)
-        {
-            UIHandler.Instance.NeedMoreCoinPanel.SetActive(true);
-        }
-        else
-        {
-            GameController.Instance.UpdateGold(-30);
             PlayerPrefs.SetInt(item.bodyPart.ToString() + item.id + "Price", 1);
             lockSlot.SetActive(false);
             priceSlot.SetActive(false);
@@ -229,40 +166,8 @@ public class ItemDisplay : MonoBehaviour
             SetPriceItem();
             SoundManager.Instance.PlayItemClickedSound();
 
-            if (GameManager.Instance.mode == GameMode.PkMode)
-            {
-            }
-        }
     }
 
-    private void HandleAdItem(Item item)
-    {
-       
-    }
-
-    private void OnReward()
-    {
-        SoundManager.Instance.PlayItemClickedSound();
-        ImmediateBuy();
-
-    }
-
-    private void ImmediateBuy()
-    {
-        PlayerPrefs.SetInt(item.bodyPart.ToString() + item.id + "Ad", 1);
-        ShopController.Instance.UnlockItem(item);
-        lockSlot.SetActive(false);
-        adSlot.SetActive(false);
-
-        this.PostEvent(EventID.OnClick, item.id);
-        //anim
-        transform.DOKill();
-        transform.DOScale(1.05f, 0.4f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
-        //
-        fill.SetActive(true);
-        PlayerPrefs.SetInt(item.bodyPart.ToString(), item.id);
-        SetPriceItem();
-    }
 
     public void Deselect()
     {

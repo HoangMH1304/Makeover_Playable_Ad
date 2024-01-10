@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -21,12 +20,12 @@ public class RewardEffect : MonoBehaviour
     private GameObject prefabSpin;
     [SerializeField]
     private Canvas canvas;
-    [InfoBox("Mảng Targets: đánh dấu các vị trí mà reward sẽ bay đến")]
+    //[InfoBox("Mảng Targets: đánh dấu các vị trí mà reward sẽ bay đến")]
     [SerializeField]
     private Transform[] targets;
     private List<Image> listImg;
     private List<Transform> listCoinTransform;
-    [InfoBox("Mảng Sprites: hình ảnh của reward")]
+    //[InfoBox("Mảng Sprites: hình ảnh của reward")]
     [SerializeField]
     private Sprite[] sprites;
     [HideInInspector]

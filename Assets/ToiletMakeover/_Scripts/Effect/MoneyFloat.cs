@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using TMPro;
 using UnityEngine.UI;
 
 public class MoneyFloat : MonoBehaviour
 {
     [Header("Auto float money")]
-    [SerializeField] private TextMeshProUGUI autoRaiseMoney;
+    [SerializeField] private Text autoRaiseMoney;
     [SerializeField] private Image autoMoney;
     private Transform autoRaiseMoneyTransform;
 
     [Header("For single monster")]
-    [SerializeField] private TextMeshProUGUI[] click1TimeMoney;
+    [SerializeField] private Text[] click1TimeMoney;
     [SerializeField] private Image[] moneyImgs1;
     [SerializeField] private FloatEffect[] moneyPerMonster;
 
     [Header("For multiple monster")]
-    [SerializeField] private TextMeshProUGUI[] totalMoneyRaise;
+    [SerializeField] private Text[] totalMoneyRaise;
     [SerializeField] private Image[] moneyImgs2;
     [SerializeField] private FloatEffect[] moneyAllMonster;
 

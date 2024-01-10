@@ -156,40 +156,17 @@ public class ShopController : MonoBehaviour
                 lockItem.Add(mouths[i]);
             }
         }
-        //for (int i = 1; i < accs.Length; i++)
-        //{
-        //    if ((accs[i].isAd && PlayerPrefs.GetInt(accs[i].bodyPart.ToString() + accs[i].id + "Ad") == 0) ||
-        //        (accs[i].price > 0 && PlayerPrefs.GetInt(accs[i].bodyPart.ToString() + accs[i].id + "Price") == 0))
-        //    {
-        //        lockAcc.Add(accs[i]);
-        //        lockItem.Add(accs[i]);
-        //    }
-        //}
-        //for (int i = 0; i < bodies.Length; i++)
-        //{
-        //    if ((bodies[i].isAd && PlayerPrefs.GetInt(bodies[i].bodyPart.ToString() + bodies[i].id + "Ad") == 0) ||
-        //        (bodies[i].price > 0 && PlayerPrefs.GetInt(bodies[i].bodyPart.ToString() + bodies[i].id + "Price") == 0))
-        //    {
-        //        lockBody.Add(bodies[i]);
-        //        lockItem.Add(bodies[i]);
-        //    }
-        //}
     }
 
     private void Start()
     {
-
-        bool isSkipAd = GameController.Instance.SkipAdsTicket > 0 ? true : false;
-
-        InitItems(isSkipAd, heads, headContent, headItemDisplay, 0);
-        InitItems(isSkipAd, eyes, eyeContent, eyeItemDisplay, 2);
-        InitItems(isSkipAd, mouths, mouthContent, mouthItemDisplay, 2);
-        InitItems(isSkipAd, accs, accContents, accItemDisplay, 2);
-        InitItems(isSkipAd, bodies, bodyContent, bodyItemDisplay, 0);
+        InitItems(heads, headContent, headItemDisplay, 0);
+        InitItems(eyes, eyeContent, eyeItemDisplay, 2);
+        InitItems(mouths, mouthContent, mouthItemDisplay, 2);
+        InitItems(accs, accContents, accItemDisplay, 2);
+        InitItems(bodies, bodyContent, bodyItemDisplay, 0);
 
         this.RegisterListener(EventID.OnClick, (param) => OnClickItem((int)param));
-        this.RegisterListener(EventID.OnReplay, (param) => ResetShopItem());
-        this.RegisterListener(EventID.OnReplayPK, (param) => ResetShopItem());
     }
 
     public void UnlockItem(Item item)
@@ -331,8 +308,6 @@ public class ShopController : MonoBehaviour
                 eye_img.sprite = eyes[id].part;
                 idEye = id;
 
-                HandleSlider(id, isPickEye);
-
                 if (eyes[id].specialPos) eye_img.transform.localPosition = eyes[id].realPos;
                 else eye_img.transform.localPosition = eyePos;
 
@@ -351,19 +326,8 @@ public class ShopController : MonoBehaviour
                 mouth_img.sprite = mouths[id].part;
                 idMouth = id;
 
-                HandleSlider(id, isPickMouth);
 
 
-                if (isPickMouth && currentId != 0)
-                {
-                    //not show zoom bar
-                    TabMenuHandler.Instance.SetValueSlide(1);
-                }
-                else
-                {
-                    //show zoom bar
-                    TabMenuHandler.Instance.ShowZoomSlide();
-                }
                 mouth_img.transform.localPosition = mouthPos;
 
                 mouth_img.transform.DOScale(new Vector3(1f, 0, 0), 0);
@@ -380,20 +344,6 @@ public class ShopController : MonoBehaviour
 
                 acc_img.sprite = accs[id].part;
                 idAcc = id;
-
-                HandleSlider(id, isPickAcc);
-
-
-                if (isPickAcc)
-                {
-                    //not show zoom bar
-                    TabMenuHandler.Instance.SetValueSlide(1);
-                }
-                else
-                {
-                    //show zoom bar
-                    TabMenuHandler.Instance.ShowZoomSlide();
-                }
 
                 if (accs[id].specialPos) acc_img.transform.localPosition = accs[id].realPos;
 
@@ -454,44 +404,6 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    private void HandleSlider(int id, bool isPick)
-    {
-        if (isPick)
-        {
-            if (id != 0)
-            {
-                if (!TabMenuHandler.Instance.isSliderShow)
-                {
-                    TabMenuHandler.Instance.SetValueSlide(1);
-                    TabMenuHandler.Instance.ShowZoomSlide();
-                }
-                else
-                    TabMenuHandler.Instance.SetValueSlide(1);
-            }
-            else
-                TabMenuHandler.Instance.HideZoomSlide();
-        }
-        else
-        {
-            if (id == 0)
-                TabMenuHandler.Instance.HideZoomSlide();
-            else
-                TabMenuHandler.Instance.ShowZoomSlide();
-        }
-    }
-
-    private void SetStateZoomSlide(bool state)
-    {
-        if (!state)
-        {
-            TabMenuHandler.Instance.HideZoomSlide();
-        }
-        else
-        {
-            TabMenuHandler.Instance.ShowZoomSlide();
-        }
-    }
-
     #region for_zoom_slider
     private int idEye;
     private int idMouth;
@@ -504,24 +416,19 @@ public class ShopController : MonoBehaviour
         {
             case (int)BodyPart.Head:
                 bodyPart = BodyPart.Head;
-                TabMenuHandler.Instance.HideZoomSlide();
                 break;
             case (int)BodyPart.Eye:
                 bodyPart = BodyPart.Eye;
-                SetStateZoomSlide(isPickEye && idEye != 0);
                 break;
             case (int)BodyPart.Mouth:
                 bodyPart = BodyPart.Mouth;
-                SetStateZoomSlide(isPickMouth && idMouth != 0);
                 break;
             case (int)BodyPart.Acc:
                 bodyPart = BodyPart.Acc;
-                SetStateZoomSlide(isPickAcc && idAcc != 0);
                 FocusHeadCharacter();
                 break;
             case (int)BodyPart.Body:
                 bodyPart = BodyPart.Body;
-                TabMenuHandler.Instance.HideZoomSlide();
                 ForcusEntireCharacter();
                 break;
         }
@@ -578,7 +485,7 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    public void InitItems(bool isSkipAd, Item[] items, Transform content, List<ItemDisplay> l, int startIdx = 0)  // grimace, normal, anime
+    public void InitItems(Item[] items, Transform content, List<ItemDisplay> l, int startIdx = 0)  // grimace, normal, anime
     {
         ItemDisplay templateObject = content.GetChild(0).GetComponent<ItemDisplay>();
 
@@ -586,7 +493,7 @@ public class ShopController : MonoBehaviour
         {
             var itemObject = Instantiate(templateObject, content);
             items[i].id = i;
-            itemObject.Show(items[i], isSkipAd);
+            itemObject.Show(items[i]);
             itemObject.name = i.ToString();
 
             if (items[i].priority == Priority.High || items[i].priority == Priority.SeasonReward)

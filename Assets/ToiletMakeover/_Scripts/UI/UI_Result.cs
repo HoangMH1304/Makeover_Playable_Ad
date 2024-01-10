@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using DG.Tweening;
 //using System;
 
@@ -26,8 +25,6 @@ public class UI_Result : MonoBehaviour
     [SerializeField] private GameObject rewardRandomZone;
 
     [Header("Currency")]
-    [SerializeField] private TextMeshProUGUI quantity;
-    [SerializeField] private TextMeshProUGUI coinNum;
     [SerializeField] private CountNumber moneyText;
 
     [Header("Reward Zone")]
