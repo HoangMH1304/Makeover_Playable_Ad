@@ -16,7 +16,6 @@ public class CameraHandler : MonoBehaviour
 {
     public static CameraHandler Instance;
     [SerializeField] private CharacterManager characterManager;
-    [SerializeField] private Confetti confetti;
     [SerializeField] private Transform[] cams;
     [SerializeField] Camera[] cameras;
     private Transform _transform;
@@ -73,31 +72,6 @@ public class CameraHandler : MonoBehaviour
             aspectRatio = AspectRatio.AR34;
         }
     }
-
-    #region PlayConfettiZone
-    public void PlayConfetti()
-    {
-        confetti.PlayConfetti();
-    }
-
-    float backUpOrthoSize = 15;
-    public void AdjustToPlayConfetti()
-    {
-        if (cameraMain.orthographicSize != 11)
-        {
-            backUpOrthoSize = cameraMain.orthographicSize;
-            cameraMain.orthographicSize = 11;
-        }
-
-        confetti.PlayConfetti();
-    }
-
-    public void SwitchOrgOrthoSize()
-    {
-        confetti.StopParticleSystem();
-        cameraMain.orthographicSize = backUpOrthoSize;
-    }
-    #endregion
 
     private void RegisterListener()
     {

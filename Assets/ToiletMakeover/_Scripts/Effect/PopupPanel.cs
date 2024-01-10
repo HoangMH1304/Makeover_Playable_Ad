@@ -13,7 +13,6 @@ public class PopupPanel : MonoBehaviour
     private float lastCamOrthoSize;
     protected float entranceTime = 0.3f;
     public float scaleY = 1;
-    private Confetti _confetti;
     private bool closeable = false;
 
     private bool closed = false;
@@ -59,8 +58,6 @@ public class PopupPanel : MonoBehaviour
             lastCamOrthoSize = Camera.main.orthographicSize;
             CameraHandler.Instance.CameraForConfetti(6.5f);
         }
-        _confetti = conffeti.GetComponent<Confetti>();
-        _confetti.PlayConfetti();
     }
 
     protected virtual void EntranceAnim()
@@ -74,11 +71,6 @@ public class PopupPanel : MonoBehaviour
     {
         if (!closeable || closed) return;
         if (adjustCamera) CameraHandler.Instance.CameraForConfetti(lastCamOrthoSize);
-        if (conffeti != null)
-        {
-            _confetti.StopParticleSystem();
-        }
-        
         this.PostEvent(EventID.OnTurnOffInteractNativeAd, true);
         closed = true;
 

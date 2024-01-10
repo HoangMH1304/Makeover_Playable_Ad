@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Acc
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e3d5f244ddcb6f846a38c652e39965a2, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e5b8180779b4b8b4486deacf9734f45e, type: 3}
+  - {fileID: 21300000, guid: 12414ec8e8ae849228e9085ffa573432, type: 3}
+  - {fileID: 21300000, guid: 64c6bfc9c51efe2408254e8b6059f47b, type: 3}
+  - {fileID: 21300000, guid: e9fe72ebad8849b438b6d029fa0921f3, type: 3}
+  - {fileID: 21300000, guid: aafb02ccccdb140ab996613d752dfad5, type: 3}
+  - {fileID: 21300000, guid: ce367bcc092ff45dbb6811cf4c828948, type: 3}
+  - {fileID: 21300000, guid: f51f625d84dc64ddfbb1cc9dda72fc2d, type: 3}
+  - {fileID: 21300000, guid: 430acfbd00fd54325be201ec77319d89, type: 3}
+  - {fileID: 21300000, guid: 88ed328e553a0914b9fa8287eb8f4215, type: 3}
+  - {fileID: 21300000, guid: 487ebb9f24fd104489ea50b7dc27de18, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - 1i_blue_crown_acc #3185
+  - bubbaphant_acc_i
+  - 10i_kissy_acc #3219
+  - 1_lasertoilet_acc_i
+  - dogday_acc_i
+  - corn_acc_i
+  - bearhug_acc_i
+  - pomni_acc_i
+  - 0i_banbaleena_ribbon_acc
+  - 11_titantvman_acc_i
+  m_RenderDataMap: {}
+  m_Tag: Acc
+  m_IsVariant: 0

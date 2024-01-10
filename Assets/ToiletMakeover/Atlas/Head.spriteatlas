@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Head
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 68e90267139d06c4ebb8aa09782907f4, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d6a14b20ecc1a124abb58f787a915cfb, type: 3}
+  - {fileID: 21300000, guid: 92e24e80eb1dd1a44be86f14d342258d, type: 3}
+  - {fileID: 21300000, guid: c2a0e5a1d4cd2469d8a0db2ca91af4ba, type: 3}
+  - {fileID: 21300000, guid: 2b5be1927093544b5b43de42f95d369d, type: 3}
+  - {fileID: 21300000, guid: 9db009936b1cc431f919b86bfac87344, type: 3}
+  - {fileID: 21300000, guid: 6638cb979bfd443d2b2ee9fb06a4e99e, type: 3}
+  - {fileID: 21300000, guid: 074aa128770acda41b29a1f39ea6aded, type: 3}
+  - {fileID: 21300000, guid: 2482be98600174b2580183173091b43e, type: 3}
+  - {fileID: 21300000, guid: 059e4ea8eaf2142468eb03fdc0c5f35f, type: 3}
+  - {fileID: 21300000, guid: 5f894639e3f214e868e3242f1893f95c, type: 3}
+  - {fileID: 21300000, guid: 551b6d69a0adbd04c9668866772749ea, type: 3}
+  - {fileID: 21300000, guid: 8607f7793fd0c4d85a1523d3c7067a26, type: 3}
+  - {fileID: 21300000, guid: 2d3539b91df1f4b66bbaea7ae9758e95, type: 3}
+  - {fileID: 21300000, guid: 9d024cfa6d18a43e196eaf615f410645, type: 3}
+  - {fileID: 21300000, guid: 91c3ce3d37955804880cccba83489cc4, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - face4
+  - face18
+  - caine_head_i
+  - bearhug_head_i
+  - pomni_head_i
+  - catnap_head_i
+  - 25_lasertoilet_head_i
+  - jax_head_i
+  - face1
+  - corn_head_i
+  - 30_giantcamera_head_i
+  - bubbaphant_head_i
+  - hoppy_head_i
+  - dogday_head_i
+  - face16
+  m_RenderDataMap: {}
+  m_Tag: Head
+  m_IsVariant: 0

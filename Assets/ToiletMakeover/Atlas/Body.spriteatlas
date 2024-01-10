@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Body
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 846f255f7b3798a49b604598f6955405, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 694ef1803344a4e42b170c339d8954fc, type: 3}
+  - {fileID: 21300000, guid: 8b32d9417d14f4a269c0e581629f7a3b, type: 3}
+  - {fileID: 21300000, guid: 55a9bd51b3c5f40bf942bc1f22c5c11e, type: 3}
+  - {fileID: 21300000, guid: 105dfc721e24a4a26a60995d5c573d56, type: 3}
+  - {fileID: 21300000, guid: 226ae4b6b94b23846bd6519989bae040, type: 3}
+  - {fileID: 21300000, guid: 109996e6740131743a96d75646f8738e, type: 3}
+  - {fileID: 21300000, guid: 1fdd0187b22c70648b65962b6c8501b4, type: 3}
+  - {fileID: 21300000, guid: da01fdb86354647dfb9b15a4e4a8182d, type: 3}
+  - {fileID: 21300000, guid: eb244a4baa2084b87ab1202f1df4a68e, type: 3}
+  - {fileID: 21300000, guid: 638eb69bf06244115994806d4544f4e5, type: 3}
+  - {fileID: 21300000, guid: 74f6eadb0b8e345f18c058d04d7d6ae6, type: 3}
+  - {fileID: 21300000, guid: 62706b1c3f1711049ab6c362883943e4, type: 3}
+  - {fileID: 21300000, guid: f4e6d34c5f4603e49b7f5b6fb23809e5, type: 3}
+  - {fileID: 21300000, guid: 4629907df8f5847769fb18dff4ee2af6, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bearhug_body_i
+  - caine_body_i
+  - jax_body_i
+  - bubbaphant_body_i
+  - a_1_huggy_body
+  - g_1_mommy_body
+  - 31_giantcamera_body_i
+  - hoppy_body_i
+  - dogday_body_i
+  - pomni_body_i
+  - catnap_body_i
+  - body8
+  - 32_rockettoilet_body_i
+  - corn_body_i
+  m_RenderDataMap: {}
+  m_Tag: Body
+  m_IsVariant: 0

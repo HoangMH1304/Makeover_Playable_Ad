@@ -28,7 +28,6 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private Image fade;
     [SerializeField] private GameObject adBreak;
     [SerializeField] private PopupPanel newModePkPopup;
-    [SerializeField] private SubPanel subPanel;
     [SerializeField] private GameObject blackScreen;
 
     //[Title("Idle mode", titleAlignment: TitleAlignments.Centered)]
@@ -70,7 +69,6 @@ public class UIHandler : MonoBehaviour
     public RectTransform LimitArea { get => limitArea; set => limitArea = value; }
     public GameObject AdBreak { get => adBreak; set => adBreak = value; }
     public PopupPanel NewModePkPopup { get => newModePkPopup; set => newModePkPopup = value; }
-    public SubPanel SubPanel { get => subPanel; set => subPanel = value; }
     public GameObject BlackScreen { get => blackScreen; set => blackScreen = value; }
 
     private float aspectRatio;

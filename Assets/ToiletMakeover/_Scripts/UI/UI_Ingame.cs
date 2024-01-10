@@ -76,11 +76,6 @@ public class UI_Ingame : MonoBehaviour
 
     public void Home()
     {
-
-        if (GameManager.Instance.mode == GameMode.PkMode)
-        {
-            this.PostEvent(EventID.OnTurnOffSuggestSymbolItems);
-        }
         UIHandler.Instance.ReturnHome = true;
         this.PostEvent(EventID.OnReplay);
         UIHandler.Instance.ReturnHome = false;
