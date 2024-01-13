@@ -13,7 +13,6 @@ public class ShopController : MonoBehaviour
 {
     public static ShopController Instance;
     private BodyPart bodyPart;
-    public BodyPart BodyPart { get => bodyPart; set => bodyPart = value; }
 
     public bool IsPickBody { get => isPickBody; set => isPickBody = value; }
     public Item[] Bodies { get => bodies; set => bodies = value; }
@@ -29,13 +28,6 @@ public class ShopController : MonoBehaviour
     [SerializeField] public Item[] mouths;
     [SerializeField] public Item[] accs;
     [SerializeField] public Item[] bodies;
-
-    [Header("ItemDisplay List")]
-    private List<ItemDisplay> headItemDisplay = new List<ItemDisplay>();
-    private List<ItemDisplay> eyeItemDisplay = new List<ItemDisplay>();
-    private List<ItemDisplay> mouthItemDisplay = new List<ItemDisplay>();
-    private List<ItemDisplay> accItemDisplay = new List<ItemDisplay>();
-    private List<ItemDisplay> bodyItemDisplay = new List<ItemDisplay>();
 
     [Header("BodyPart Content")]
     [HideInInspector]
@@ -69,6 +61,9 @@ public class ShopController : MonoBehaviour
     [HideInInspector]
     [SerializeField] private BoneFollower boneFollower2;
 
+    [SerializeField] private GameObject handTut;
+    [SerializeField] private Transform characterManager;
+
     [Header("Current body part in scriptable object")]
     private Item currentHead;
     private Item currentEye;
@@ -84,6 +79,10 @@ public class ShopController : MonoBehaviour
     private SkeletonAnimation bodyAnim;
     private SkeletonAnimation bodyAnim2;
 
+    private TouchController eyeController;
+    private TouchController mouthController;
+    private TouchController accController;
+
     private bool isPickHead = false;
     private bool isPickEye = false;
     private bool isPickMouth = false;
@@ -93,24 +92,11 @@ public class ShopController : MonoBehaviour
     private Vector3 eyePos = new Vector3(0, 0.7f, 0);
     private Vector3 mouthPos = new Vector3(0, -1f, 0);
 
-    [HideInInspector]
-    public List<Item> lockHead = new List<Item>();
-    [HideInInspector]
-    public List<Item> lockEye = new List<Item>();
-    [HideInInspector]
-    public List<Item> lockMouth = new List<Item>();
-    [HideInInspector]
-    public List<Item> lockAcc = new List<Item>();
-    [HideInInspector]
-    public List<Item> lockBody = new List<Item>();
-    [HideInInspector]
-    public List<Item> lockItem = new List<Item>();
-
 
     private void Awake()
     {
         Instance = this;
-        InitReferences();
+        GetReference();
     }
 
     private void GetReference()
@@ -121,122 +107,24 @@ public class ShopController : MonoBehaviour
         mouth_img = mouth.GetComponent<SpriteRenderer>();
         acc_img = acc.GetComponent<SpriteRenderer>();
 
+        eyeController = eye.GetComponent<TouchController>();
+        mouthController = mouth.GetComponent<TouchController>();
+        accController = acc.GetComponent<TouchController>();
+
         bodyAnim = body.GetComponent<SkeletonAnimation>();
         bodyAnim2 = body2.GetComponent<SkeletonAnimation>();
     }
 
-    private void InitReferences()
-    {
-        GetReference();
-
-        for (int i = 0; i < heads.Length; i++)
-        {
-            if ((heads[i].isAd && PlayerPrefs.GetInt(heads[i].bodyPart.ToString() + heads[i].id + "Ad") == 0) ||
-                (heads[i].price > 0 && PlayerPrefs.GetInt(heads[i].bodyPart.ToString() + heads[i].id + "Price") == 0))
-            {
-                lockHead.Add(heads[i]);
-                lockItem.Add(heads[i]);
-            }
-        }
-        for (int i = 1; i < eyes.Length; i++)
-        {
-            if ((eyes[i].isAd && PlayerPrefs.GetInt(eyes[i].bodyPart.ToString() + eyes[i].id + "Ad") == 0) ||
-                (eyes[i].price > 0 && PlayerPrefs.GetInt(eyes[i].bodyPart.ToString() + eyes[i].id + "Price") == 0))
-            {
-                lockEye.Add(eyes[i]);
-                lockItem.Add(eyes[i]);
-            }
-        }
-        for (int i = 1; i < mouths.Length; i++)
-        {
-            if ((mouths[i].isAd && PlayerPrefs.GetInt(mouths[i].bodyPart.ToString() + mouths[i].id + "Ad") == 0) ||
-                (mouths[i].price > 0 && PlayerPrefs.GetInt(mouths[i].bodyPart.ToString() + mouths[i].id + "Price") == 0))
-            {
-                lockMouth.Add(mouths[i]);
-                lockItem.Add(mouths[i]);
-            }
-        }
-    }
-
     private void Start()
     {
-        InitItems(heads, headContent, headItemDisplay, 0);
-        InitItems(eyes, eyeContent, eyeItemDisplay, 2);
-        InitItems(mouths, mouthContent, mouthItemDisplay, 2);
-        InitItems(accs, accContents, accItemDisplay, 2);
-        InitItems(bodies, bodyContent, bodyItemDisplay, 0);
+        InitItems(heads, headContent, 0);
+        InitItems(eyes, eyeContent, 2);
+        InitItems(mouths, mouthContent, 2);
+        InitItems(accs, accContents, 2);
+        InitItems(bodies, bodyContent, 0);
 
         this.RegisterListener(EventID.OnClick, (param) => OnClickItem((int)param));
     }
-
-    public void UnlockItem(Item item)
-    {
-        switch (item.bodyPart)
-        {
-            case BodyPart.Head:
-                RemoveItemInList(item, lockHead);
-                break;
-            case BodyPart.Eye:
-                RemoveItemInList(item, lockEye);
-                break;
-            case BodyPart.Mouth:
-                RemoveItemInList(item, lockMouth);
-                break;
-            //case BodyPart.Acc:
-            //    RemoveItemInList(item, lockAcc);
-            //    break;
-            //case BodyPart.Body:
-            //    RemoveItemInList(item, lockBody);
-            //    break;
-            default:
-                break;
-        }
-    }
-
-    private void RemoveItemInList(Item item, List<Item> items)
-    {
-        for (int i = items.Count - 1; i >= 0; i--)
-        {
-            if (items[i].id == item.id)
-            {
-                items.RemoveAt(i);
-                break;
-            }
-        }
-        for (int i = lockItem.Count - 1; i >= 0; i--)
-        {
-            if (lockItem[i].id == item.id && lockItem[i].bodyPart.ToString().Equals(item.bodyPart.ToString()))
-            {
-                lockItem.RemoveAt(i);
-                break;
-            }
-        }
-    }
-
-    #region Reset_shop_item
-    public void OnInitialSpecs()
-    {
-        ShopController.Instance.BodyPart = BodyPart.Head;
-        bodyAnim.AnimationState.SetAnimation(0, "Hold", true).MixDuration = 0;
-        bodyAnim.Skeleton.SetToSetupPose();         //
-        bodyAnim.Skeleton.SetBonesToSetupPose();    //
-        bodyAnim.Skeleton.SetSlotsToSetupPose();    //
-        bodyAnim2.AnimationState.SetAnimation(0, "Hold", true).MixDuration = 0;
-        bodyAnim2.Skeleton.SetToSetupPose();         //
-        bodyAnim2.Skeleton.SetBonesToSetupPose();    //
-        bodyAnim2.Skeleton.SetSlotsToSetupPose();
-
-
-        boneFollower.enabled = false;
-        boneFollower2.enabled = false;
-        body.SetActive(false);
-        body2.SetActive(false);
-        head_img.sprite = null;
-        eye_img.sprite = null;
-        mouth_img.sprite = null;
-        acc_img.sprite = null;
-    }
-    #endregion
 
     public bool CheckNextStep(int id)
     {
@@ -257,8 +145,10 @@ public class ShopController : MonoBehaviour
         }
     }
 
+
     private void OnClickItem(int id)
     {
+        if (!handTut.activeSelf) handTut.SetActive(true);
         int currentId = PlayerPrefs.GetInt(bodyPart.ToString(), 0);
         switch (bodyPart)
         {
@@ -300,8 +190,6 @@ public class ShopController : MonoBehaviour
 
                 mouth_img.sprite = mouths[id].part;
                 idMouth = id;
-
-
 
                 mouth_img.transform.localPosition = mouthPos;
 
@@ -379,6 +267,7 @@ public class ShopController : MonoBehaviour
         }
     }
 
+
     #region for_zoom_slider
     private int idEye;
     private int idMouth;
@@ -387,6 +276,10 @@ public class ShopController : MonoBehaviour
 
     public void SetCurrenBodyPartController(int index)
     {
+        eyeController.enabled = false;
+        mouthController.enabled = false;
+        accController.enabled = false;
+
         switch (index)
         {
             case (int)BodyPart.Head:
@@ -394,12 +287,15 @@ public class ShopController : MonoBehaviour
                 break;
             case (int)BodyPart.Eye:
                 bodyPart = BodyPart.Eye;
+                eyeController.enabled = true;
                 break;
             case (int)BodyPart.Mouth:
                 bodyPart = BodyPart.Mouth;
+                mouthController.enabled = true;
                 break;
             case (int)BodyPart.Acc:
                 bodyPart = BodyPart.Acc;
+                accController.enabled = true;
                 FocusHeadCharacter();
                 break;
             case (int)BodyPart.Body:
@@ -413,31 +309,35 @@ public class ShopController : MonoBehaviour
     #region camera_zoom_to_focus
     private void ForcusEntireCharacter()
     {
-        if (body.activeSelf)
-        {
-            headHolder.localEulerAngles = new Vector3(0, 0, -89.145f);
-            headHolder.localPosition = new Vector3(3.2f, 1f, 0);
-        }
-        else if (body2.activeSelf)
-        {
-            headHolder.localEulerAngles = new Vector3(0, 0, -89.12f);
-            headHolder.localPosition = new Vector3(0.8f, 0f, 0);
-        }
-        else
-        {
-            headHolder.localPosition = new Vector3(3f, 1f, 0);
-        }
-        CameraHandler.Instance.ZoomOut();
+        //if (body.activeSelf)
+        //{
+        //    headHolder.localEulerAngles = new Vector3(0, 0, -89.145f);
+        //    headHolder.localPosition = new Vector3(3.2f, 1f, 0);
+        //}
+        //else if (body2.activeSelf)
+        //{
+        //    headHolder.localEulerAngles = new Vector3(0, 0, -89.12f);
+        //    headHolder.localPosition = new Vector3(0.8f, 0f, 0);
+        //}
+        //else
+        //{
+        //    headHolder.localPosition = new Vector3(3f, 1f, 0);
+        //}
+        //CameraHandler.Instance.ZoomOut();
+        characterManager.DOScale(Vector3.one * 0.5f, 0.3f).SetEase(Ease.InOutSine);
+        characterManager.DOLocalMoveY(2.5f, 0.3f).SetEase(Ease.InOutSine);
     }
 
     private void FocusHeadCharacter()
     {
-        CameraHandler.Instance.ZoomIn();
+        //CameraHandler.Instance.ZoomIn();
+        characterManager.DOScale(Vector3.one, 0.3f).SetEase(Ease.InOutSine);
+        characterManager.DOLocalMoveY(0f, 0.3f).SetEase(Ease.InOutSine);
     }
     #endregion
 
 
-    public void InitItems(Item[] items, Transform content, List<ItemDisplay> l, int startIdx = 0)  // grimace, normal, anime
+    public void InitItems(Item[] items, Transform content, int startIdx = 0)  // grimace, normal, anime
     {
         ItemDisplay templateObject = content.GetChild(0).GetComponent<ItemDisplay>();
 
@@ -445,7 +345,7 @@ public class ShopController : MonoBehaviour
         {
             var itemObject = Instantiate(templateObject, content);
             items[i].id = i;
-            itemObject.Show(items[i]);
+            itemObject.Show(items[i], i);
             itemObject.name = i.ToString();
 
             if (items[i].priority == Priority.High || items[i].priority == Priority.SeasonReward)
@@ -466,14 +366,13 @@ public class ShopController : MonoBehaviour
                 else
                     itemObject.gameObject.SetActive(true);
             }
-
-            l.Add(itemObject);
         }
 
         Destroy(templateObject.gameObject);
     }
 
     //====================Just update data ongui by tool=================
+    #region Editor_Tool
 
     public void HandleSortItemIngame()
     {
@@ -508,4 +407,5 @@ public class ShopController : MonoBehaviour
         return true;
     }
 #endif
+    #endregion
 }

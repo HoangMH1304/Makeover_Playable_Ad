@@ -18,7 +18,7 @@ public class TouchController : MonoBehaviour
 
     private void Start()
     {
-        //UIHandler.Instance.LimitArea.GetWorldCorners(corners);
+        UIHandler.Instance.limitArea.GetWorldCorners(corners);
         _camera = Camera.main;
     }
 

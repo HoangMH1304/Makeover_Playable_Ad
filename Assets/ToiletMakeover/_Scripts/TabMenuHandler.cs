@@ -10,23 +10,17 @@ public class TabMenuHandler : MonoBehaviour
     public static TabMenuHandler Instance;
     [SerializeField] private List<Tab> tabSelection;
     [SerializeField] private List<GridHandler> tabContents;
-    [SerializeField] private Image nextBtn, prevBtn;
+    [SerializeField] private Image nextBtn;
     [SerializeField] private Color fade;
-    [SerializeField] private GameObject next_Btn, done_Btn, submit_Btn, battle_Btn;
+    [SerializeField] private GameObject next_Btn, done_Btn;
 
-    [SerializeField] private ParticleSystem prev;
-    [SerializeField] private ParticleSystem next;
+    //[SerializeField] private ParticleSystem next;
+    [SerializeField] private GameObject handtut;
 
-
-    [SerializeField] private Transform subscriptionBtn;
-    private int countTurnPlayGame = 0;
-    private int timeShowSub = 0;
-    private int limitCountTurnShowSub = 0;
 
     private int index;
-    private bool isShow = false;
     private bool firstPlay = true;
-    private bool nextable = false, prevable = true;
+    private bool nextable = false;
 
     [Header("Slider")]
     [SerializeField] private Slider slider;
@@ -49,8 +43,6 @@ public class TabMenuHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        isShow = false;
-
         if (!firstPlay) InitState();
     }
 
@@ -58,10 +50,7 @@ public class TabMenuHandler : MonoBehaviour
     {
         ResetTabs();
 
-        prevable = true;
         nextable = false;
-        prevBtn.color = fade;
-        nextBtn.color = fade;
         done_Btn.SetActive(false);
         next_Btn.SetActive(true);
 
@@ -77,10 +66,6 @@ public class TabMenuHandler : MonoBehaviour
             else tabSelection[i].Reset();
             tabContents[i].SetStateContent(i == index);
         }
-        //for (int i = 0; i < tabContents.Count; i++)
-        //{
-        //}
-
     }
 
     #region Change_State_Next_Prev_Btn
@@ -89,12 +74,6 @@ public class TabMenuHandler : MonoBehaviour
     {
         nextable = true;
         nextBtn.color = Color.white;
-    }
-
-    public void TurnOnPrevBtn()
-    {
-        prevable = true;
-        prevBtn.color = Color.white;
     }
 
     public void SetStateNextBtn(int id)
@@ -117,8 +96,9 @@ public class TabMenuHandler : MonoBehaviour
         }
 
         SetStateNextBtn(index + 1);
+        handtut.SetActive(false);
 
-        next.Play();
+        //next.Play();
         tabSelection[index].OnExit(true);
         tabContents[index].SetStateContent(false);
 
@@ -126,34 +106,10 @@ public class TabMenuHandler : MonoBehaviour
 
         tabSelection[index].OnDisplay();
         tabContents[index].SetStateContent(true);
-        prevBtn.color = Color.white;
         ShopController.Instance.SetCurrenBodyPartController(index);
 
         SoundManager.Instance.PlaySound(Sound.next);
     }
 
-    public void PreviousTab()
-    {
-        if (index - 1 < 0 || !prevable || !CameraHandler.Instance.Clickable) return;   //delay
-
-
-        if (index - 1 == 0)
-        {
-            prevBtn.color = fade;
-        }
-        else TurnOnPrevBtn();
-
-        prev.Play();
-        tabSelection[index].OnExit(false);
-        tabContents[index].SetStateContent(false);
-
-        index = (index - 1) % tabSelection.Count;
-        tabSelection[index].OnDisplay();
-        tabContents[index].SetStateContent(true);
-        TurnOnNextBtn();
-        ShopController.Instance.SetCurrenBodyPartController(index);
-
-        SoundManager.Instance.PlaySound(Sound.next);
-    }
     #endregion
 }

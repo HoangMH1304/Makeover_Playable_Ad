@@ -1,0 +1,110 @@
+{
+    "BuildID": "c7b63b36-71ad-4ef6-a4b2-820c6826e9ec",
+    "Command": "project:deploy",
+    "ProjectID": "c58a4003babe78546aa7e57b98321baf",
+    "ProjectStateHash": "1b699c1b8fb69f25786609359cda9140e1981976bf7b66a8375fab2d17b332e2",
+    "StageCompletedAt": 3,
+    "EarliestFatalError": 0,
+    "StartTime": 1705058764294,
+    "EndTime": 1705058815761,
+    "PlaygroundUserID": 13468,
+    "OperatingSystem": "win32",
+    "UnityPackageID": null,
+    "TargetPlatform": "playground",
+    "UnityVersion": "2020.3.43f1",
+    "LunaVersion": "5.5.0",
+    "LogCount": 4,
+    "Logs": [
+        {
+            "LogID": "c19adf34-9208-456c-8427-b85de72e197d",
+            "Order": 2,
+            "Timestamp": 1705058816698,
+            "Stage": 3,
+            "ErrorType": 0,
+            "ErrorCode": "LP3014",
+            "Description": "You are using the wrong API: Application.OpenURL.",
+            "Details": [
+                "You are using the wrong API: Application.OpenURL. which can lead to ad networks rejecting the playable. Please use Luna.Unity.Playable.InstallFullGame() instead. "
+            ],
+            "DescriptionValues": [
+                "Application.OpenURL"
+            ],
+            "DetailsValues": [
+                "Application.OpenURL"
+            ],
+            "LogCount": 1,
+            "LinePosition": 21,
+            "FilePath": "D:\\HoangMH\\UnityProject\\ToiletMakeoverPlayable\\Assets\\ToiletMakeover\\_Scripts\\UI\\UI_Endgame.cs",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "5cf64278-8398-49c8-b89c-22e92807f704",
+            "Order": 2,
+            "Timestamp": 1705058816779,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3007",
+            "Description": "You are not using any custom events",
+            "Details": [
+                "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+            ],
+            "DescriptionValues": [
+                ""
+            ],
+            "DetailsValues": [
+                ""
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "61e8d4d1-0635-4306-8951-389babeb20bb",
+            "Order": 2,
+            "Timestamp": 1705058816780,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3011",
+            "Description": "You are not using any LunaPlaygroundFields attributes.",
+            "Details": [
+                "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+            ],
+            "DescriptionValues": null,
+            "DetailsValues": null,
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "b56f25a2-cb56-4ee0-8fbb-dfb7f1f01419",
+            "Order": 0,
+            "Timestamp": 1705058777634,
+            "Stage": 1,
+            "ErrorType": 1,
+            "ErrorCode": "LP1023",
+            "Description": "Too many files for facebook platform",
+            "Details": [
+                "Too many files for facebook platform in use ($160) only $100 available"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "160",
+                "100"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        }
+    ]
+}

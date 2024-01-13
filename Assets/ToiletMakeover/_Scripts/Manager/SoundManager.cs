@@ -45,7 +45,6 @@ public class SoundManager : MonoBehaviour
     private const string SOUND = "Sound";
     [SerializeField] private SoundAudioClip[] soundAudioClips;
     [SerializeField] private SoundAudioClip[] itemClickedAudio;
-    [SerializeField] private SoundAudioClip[] textFloatInPk;
     public static SoundManager Instance;
 
     private void Awake()
@@ -76,39 +75,23 @@ public class SoundManager : MonoBehaviour
             s.source.pitch = 1;
             s.source.loop = s.loop;
         }
-        foreach (SoundAudioClip s in textFloatInPk)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.audioClip;
-            s.source.volume = s.volume;
-            s.source.pitch = 1;
-            s.source.loop = s.loop;
-        }
+    }
+
+    private void Start()
+    {
+        PlaySound(Sound.bg);
     }
 
     /// <summary>
     /// 0: ingame, 1: lobby
     /// </summary>
     /// <param name="id"></param>
-    public void SwitchBg(int id)
-    {
-        if(id == 1)
-        {
-            PauseSound(Sound.bg);
-            PlaySound(Sound.bg2);
-        }
-        else
-        {
-            PauseSound(Sound.bg2);
-            PlaySound(Sound.bg);
-        }
-    }
 
     public void PlaySound(Sound sound, bool toggle = false)
     {
         SoundAudioClip soundAudioClip = GetAudioClip(sound);
         if (soundAudioClip == null) return;
-        if (PlayerPrefs.GetInt(SOUND) == 1 || toggle) soundAudioClip.source.Play();
+        soundAudioClip.source.Play();
     }
 
     public void PlaySFX(Sound sound, float volume, bool isPlayAgain = false)
@@ -126,12 +109,11 @@ public class SoundManager : MonoBehaviour
     {
         SoundAudioClip soundAudioClip = GetAudioClip(sound);
         if (soundAudioClip == null || soundAudioClip.source == null) return;
-        if (PlayerPrefs.GetInt(SOUND) == 1 || toggle) soundAudioClip.source.Stop();
+        soundAudioClip.source.Stop();
     }
 
     public void PlayItemClickedSound(int choose = -1)
     {
-        if (PlayerPrefs.GetInt(SOUND) != 1) return;
         if (choose != -1) itemClickedAudio[choose].source.Play();
         else
         {
@@ -141,13 +123,6 @@ public class SoundManager : MonoBehaviour
     }
 
     int choose = 0;
-    public void PlayTextFloatInPk()
-    {
-        if (PlayerPrefs.GetInt(SOUND) != 1) return;
-        choose = (choose + 1) % textFloatInPk.Length;
-
-        textFloatInPk[choose].source.Play();
-    }
 
     public SoundAudioClip GetAudioClip(Sound sound)
     {
@@ -166,10 +141,6 @@ public class SoundManager : MonoBehaviour
             s.source.pitch = value;
         }
         foreach (SoundAudioClip s in itemClickedAudio)
-        {
-            s.source.pitch = value;
-        }
-        foreach (SoundAudioClip s in textFloatInPk)
         {
             s.source.pitch = value;
         }
